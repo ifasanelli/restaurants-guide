@@ -18,10 +18,24 @@
           null
         ]
       },
-      "/home/italo/projetos/github/restaurants-guide/app/controllers/home_controller.rb": {
+      "/home/italo/projetos/github/restaurants-guide/app/models/cuisine.rb": {
+        "lines": [
+          1,
+          null
+        ]
+      },
+      "/home/italo/projetos/github/restaurants-guide/app/controllers/cuisines_controller.rb": {
         "lines": [
           1,
           1,
+          null,
+          1,
+          2,
+          null,
+          null,
+          1,
+          1,
+          null,
           null
         ]
       },
@@ -30,8 +44,15 @@
           1,
           null
         ]
+      },
+      "/home/italo/projetos/github/restaurants-guide/app/controllers/home_controller.rb": {
+        "lines": [
+          1,
+          1,
+          null
+        ]
       }
     },
-    "timestamp": 1583344674
+    "timestamp": 1583347133
   }
 }

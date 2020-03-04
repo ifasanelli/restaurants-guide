@@ -1,0 +1,18 @@
+<h1>Cozinha</h1><br><br>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Nome</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><%= @cuisine.name %></td>
+    </tr>
+  </tbody>
+</table><br><br>
+
+<div class="col-sm-5">
+  <%= link_to 'Voltar', cuisines_path, class:"btn btn-secondary" %>
+</div>
