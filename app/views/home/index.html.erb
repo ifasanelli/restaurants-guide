@@ -1,4 +1,6 @@
-<div class="custom-control custom-switch">
-  <input type="checkbox" class="custom-control-input" id="customSwitch1">
-  <label class="custom-control-label" for="customSwitch1">Toggle this switch element</label>
+<div class="container">
+  <%= form_tag "/search", method: :get, class:"form-inline my-2 my-lg-0" do %>
+    <%= text_field_tag :q, nil, placeholder: 'Buscar', class:"form-control mr-sm-2" %>
+    <%= submit_tag 'Buscar', class:"btn btn-outline-dark my-2 my-sm-0" %>
+  <% end %>
 </div>

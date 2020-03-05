@@ -1,0 +1,36 @@
+<div class="container">
+  <h1>Resultados</h1>
+</div><br>
+
+<div class="container">
+  <div class="row row-cols-2">
+    <div class="col-9">
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Nome</th>
+            <th scope="col">Cozinha</th>
+            <th scope="col">Bairro</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @places.each do |restaurant|  %>
+              <tr>
+                  <td><%= link_to restaurant.name, restaurant_path(restaurant) %></td>
+                  <td><%= restaurant.cuisine.name %></td>
+                  <td><%= restaurant.neighborhood %></td>
+              </tr>
+          <% end %>
+        </tbody>
+      </table><br><br>
+    </div>
+    <div class="col-3">
+      ADS
+    </div>
+  </div>
+</div>
+<div class=container>
+    <div class="col-sm-5">
+      <%= link_to 'Voltar', root_path, class:"btn btn-secondary" %>
+    </div><br><br>
+</div>
