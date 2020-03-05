@@ -34,6 +34,12 @@
             </li>
           <% end %>
         </ul>
+        <% unless current_page?(root_path) %>
+          <%= form_tag "/search", method: :get, class:"form-inline my-2 my-lg-0" do %>
+            <%= text_field_tag :q, nil, placeholder: 'Buscar', class:"form-control mr-sm-2" %>
+            <%= submit_tag 'Buscar', class:"btn btn-outline-dark my-2 my-sm-0" %>
+          <% end %>
+        <% end %>
       </div>
     </nav>
 
