@@ -1,0 +1,22 @@
+<div class="container">
+  <h1>Restaurantes</h1><br><br>
+
+  <table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">Nome</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @restaurants.each do |restaurant|  %>
+          <tr>
+              <td><%= link_to restaurant.name, restaurant_path(restaurant) %></td>
+          </tr>
+      <% end %>
+    </tbody>
+  </table><br><br>
+
+  <div class="col-sm-5">
+    <%= link_to 'Voltar', root_path, class:"btn btn-secondary" %>
+  </div>
+</div>

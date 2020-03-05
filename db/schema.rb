@@ -10,12 +10,40 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_04_182806) do
+ActiveRecord::Schema.define(version: 2020_03_05_003711) do
 
   create_table "cuisines", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "restaurants", force: :cascade do |t|
+    t.string "name"
+    t.string "address"
+    t.string "neighborhood"
+    t.string "city"
+    t.integer "status"
+    t.string "phone"
+    t.string "phone2"
+    t.decimal "cost"
+    t.string "timmings"
+    t.string "happy_hour"
+    t.boolean "coffee"
+    t.boolean "delivery"
+    t.boolean "ac"
+    t.boolean "wifi"
+    t.boolean "cards"
+    t.boolean "tickets"
+    t.boolean "outside"
+    t.boolean "club"
+    t.boolean "vegetarian"
+    t.integer "cuisine_id"
+    t.decimal "latitude"
+    t.decimal "longitude"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["cuisine_id"], name: "index_restaurants_on_cuisine_id"
   end
 
   create_table "users", force: :cascade do |t|

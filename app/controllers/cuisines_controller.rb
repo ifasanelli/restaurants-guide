@@ -17,6 +17,7 @@ class CuisinesController < ApplicationController
   def create
     @cuisine = Cuisine.new(cuisine_params)
     if @cuisine.save
+      flash[:notice] = 'Cozinha criada com sucesso!'
       redirect_to @cuisine
     else
       render :new

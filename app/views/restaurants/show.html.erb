@@ -1,0 +1,162 @@
+<div class="container">
+  <h1><%= @restaurant.name %></h1>
+</div><br>
+
+<div class="container">
+  <div class="row row-cols-3">
+    <div class="col-3">
+      <div class="row">
+        <div class="col-3 col-sm-12">
+          <strong>Telefones</strong>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-3 col-sm-12">
+          <%= @restaurant.phone %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-3 col-sm-12">
+          <%= @restaurant.phone2 %>
+        </div>
+      </div><br>
+      <div class="row">
+        <div class="col-3 col-sm-12">
+          <strong>Endereço</strong>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-3 col-sm-12">
+          <%= @restaurant.address %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-3 col-sm-12">
+          <%= @restaurant.neighborhood %>, <%= @restaurant.city %>
+        </div>
+      </div><br>
+      <div class="row">
+        <div class="col-3 col-sm-12">
+          <strong>Cozinha</strong>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-3 col-sm-12">
+          <%= @restaurant.cuisine.name %>
+        </div>
+      </div><br>
+      <div class="row">
+        <div class="col-3 col-sm-12">
+          <strong>Horários</strong>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-3 col-sm-8">
+          <%= @restaurant.timmings %>
+        </div>
+      </div><br>
+       <div class="row">
+        <div class="col-3 col-sm-12">
+          <strong>Happy Hour</strong>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-3 col-sm-8">
+          <%= @restaurant.happy_hour %>
+        </div>
+      </div><br>
+      <div class="row">
+        <div class="col-3 col-sm-12">
+          <strong>Custo médio</strong>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-3 col-sm-12">
+          R$<%= @restaurant.cost %>
+        </div>
+      </div><br>
+      <div class="row">
+        <div class="col-3 col-sm-12">
+          <strong>Destaques</strong>
+        </div>
+      </div>
+      <% if @restaurant.wifi %>
+        <div class="row">
+          <div class="col-3 col-sm-12">
+            <%= icon('fas', 'check',style:"color:#008000") %> Wi-fi
+          </div>
+        </div>
+      <% end %>
+      <% if @restaurant.coffee %>
+        <div class="row">
+          <div class="col-3 col-sm-12">
+            <%= icon('fas', 'check',style:"color:#008000") %> Café
+          </div>
+        </div>
+      <% end %>
+      <% if @restaurant.delivery %>
+        <div class="row">
+          <div class="col-3 col-sm-12">
+            <%= icon('fas', 'check',style:"color:#008000") %> Entrega
+          </div>
+        </div>
+      <% end %>
+      <% if @restaurant.ac %>
+        <div class="row">
+          <div class="col-3 col-sm-12">
+            <%= icon('fas', 'check',style:"color:#008000") %> Ar-condicionado
+          </div>
+        </div>
+      <% end %>
+      <% if @restaurant.cards %>
+        <div class="row">
+          <div class="col-3 col-sm-12">
+            <%= icon('fas', 'check',style:"color:#008000") %> Cartões
+          </div>
+        </div>
+      <% end %>
+      <% if @restaurant.tickets %>
+        <div class="row">
+          <div class="col-3 col-sm-12">
+            <%= icon('fas', 'check',style:"color:#008000") %> Tickets
+          </div>
+        </div>
+      <% end %>
+      <% if @restaurant.outside %>
+        <div class="row">
+          <div class="col-3 col-sm-12">
+            <%= icon('fas', 'check',style:"color:#008000") %> Lugar ao ar livre
+          </div>
+        </div>
+      <% end %>
+      <% if @restaurant.club %>
+        <div class="row">
+          <div class="col-3 col-sm-12">
+            <%= icon('fas', 'check',style:"color:#008000") %> Balada
+          </div>
+        </div>
+      <% end %>
+      <% if @restaurant.vegetarian %>
+        <div class="row">
+          <div class="col-3 col-sm-12">
+            <%= icon('fas', 'check',style:"color:#008000") %> Vegetariano
+          </div>
+        </div><br>
+      <% end %>
+  </div>
+    <div class="col-6">
+      <p>
+        <%= image_tag("map", alt: "Map", class:'map') %>
+      </p>
+    </div>
+    <div class="col-3">
+      ADS
+    </div>
+  </div>
+</div><br><br>
+
+<div class="container">
+  <div class="col-sm-5">
+    <%= link_to 'Voltar', root_path, class:"btn btn-secondary" %>
+  </div>
+</div><br><br>

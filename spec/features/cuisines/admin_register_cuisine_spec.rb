@@ -11,6 +11,7 @@ feature 'Admin register a cuisine' do
     click_on 'Salvar'
 
     expect(page).to have_content('Iraniana')
+    expect(page).to have_content('Cozinha criada com sucesso!')
     expect(page).to have_content('Voltar')
   end
 

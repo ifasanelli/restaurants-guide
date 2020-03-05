@@ -3,4 +3,5 @@ Rails.application.routes.draw do
   devise_for :users
   root to: 'home#index'
   resources :cuisines, only: %i[index show edit update new create]
+  resources :restaurants, only: %i[index show]
 end
