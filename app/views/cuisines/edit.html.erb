@@ -1,0 +1,27 @@
+<div class="container">
+  <h1>Editar Cozinha</h1>
+
+  <div>
+      <% if @cuisine.errors.any?%>
+          <p>Você deve corrigir os erros para continuar:</p>
+
+          <% @cuisine.errors.full_messages.each do |message|  %>
+              <p><%= message %></p>
+          <% end %>
+      <% end %>
+  </div>
+
+  <%= form_with model: @cuisine do |f| %>
+      <div>
+      <%= f.label :name, 'Nome:' %>
+      <%= f.text_field :name %>
+    </div>
+    <div>
+      <div>
+          <%= f.submit 'Salvar' %>
+      </div>
+    </div>
+  <% end %>
+
+  <%= link_to 'Voltar', cuisines_path, class:"btn btn-secondary" %>
+</div>

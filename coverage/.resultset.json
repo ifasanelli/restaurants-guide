@@ -21,6 +21,8 @@
       "/home/italo/projetos/github/restaurants-guide/app/models/cuisine.rb": {
         "lines": [
           1,
+          1,
+          null,
           null
         ]
       },
@@ -28,13 +30,32 @@
         "lines": [
           1,
           1,
+          1,
+          null,
+          1,
+          4,
+          null,
+          null,
+          1,
+          null,
+          1,
+          null,
+          1,
+          2,
+          1,
+          null,
+          1,
+          null,
+          null,
+          null,
+          1,
           null,
           1,
           2,
           null,
           null,
           1,
-          1,
+          8,
           null,
           null
         ]
@@ -53,6 +74,6 @@
         ]
       }
     },
-    "timestamp": 1583347133
+    "timestamp": 1583366799
   }
 }

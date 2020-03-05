@@ -1,18 +1,21 @@
-<h1>Cozinha</h1><br><br>
+<div class="container">
+  <h1>Cozinha</h1><br><br>
 
-<table class="table">
-  <thead>
-    <tr>
-      <th scope="col">Nome</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><%= @cuisine.name %></td>
-    </tr>
-  </tbody>
-</table><br><br>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Nome</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><%= @cuisine.name %></td>
+      </tr>
+    </tbody>
+  </table><br><br>
 
-<div class="col-sm-5">
-  <%= link_to 'Voltar', cuisines_path, class:"btn btn-secondary" %>
+  <div class="col-sm-5">
+    <%= link_to 'Editar', edit_cuisine_path(@cuisine), class:"btn btn-warning" %>
+    <%= link_to 'Voltar', cuisines_path, class:"btn btn-secondary" %>
+  </div>
 </div>
