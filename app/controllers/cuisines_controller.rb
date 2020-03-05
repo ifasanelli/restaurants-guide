@@ -8,7 +8,20 @@ class CuisinesController < ApplicationController
 
   def show; end
 
+  def new
+    @cuisine = Cuisine.new
+  end
+
   def edit; end
+
+  def create
+    @cuisine = Cuisine.new(cuisine_params)
+    if @cuisine.save
+      redirect_to @cuisine
+    else
+      render :new
+    end
+  end
 
   def update
     if @cuisine.update(cuisine_params)
