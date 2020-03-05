@@ -1,4 +1,12 @@
 <div class="container">
+  <% if @restaurant.unavailable? %>
+    <div class="alert alert-danger" role="alert">
+      <p>Inativo</p>
+    <% end %>
+</div>
+</div>
+
+<div class="container">
   <h1><%= @restaurant.name %></h1>
 </div><br>
 

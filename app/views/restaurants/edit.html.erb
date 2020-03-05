@@ -12,6 +12,15 @@
   </div>
 
   <%= form_with model: @restaurant do |f| %>
+      <div class="container">
+        <div class="row">
+          <span style="margin-right: 5px;">Ativar</span>
+          <div class="col-sm-12 custom-control custom-switch">
+            <%= f.check_box(:status, checked: @status, class:"custom-control-input", id:"chck-box") %>
+            <%= f.label(:status, "Desativar", class:"custom-control-label") %>
+          </div>
+        </div>
+      </div><br>
       <div class="form-group">
           <%= f.label :name, 'Nome:' %>
           <%= f.text_field :name, class:"form-control" %>

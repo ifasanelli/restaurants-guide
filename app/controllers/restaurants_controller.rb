@@ -1,6 +1,8 @@
 class RestaurantsController < ApplicationController
   before_action :find_restaurant, only: %i[show edit update]
   before_action :authenticate_user!, only: %i[index new create]
+  before_action :restaurant_status, only: %i[edit update]
+
 
   def index
     @restaurants = Restaurant.all
@@ -44,11 +46,17 @@ class RestaurantsController < ApplicationController
   end
 
   def restaurant_params
-    params.require(:restaurant).permit(:name, :address, :neighborhood, :city,
-                                       :status, :phone, :phone2, :cost,
-                                       :timmings, :happy_hour, :coffee,
-                                       :delivery, :ac, :wifi, :cards,
-                                       :tickets, :outside, :club, :vegetarian,
-                                       :latitude, :longitude, :cuisine_id)
+    rp = params.require(:restaurant).permit(:name, :status, :address, :neighborhood,
+                                            :city, :phone, :phone2, :cost, :timmings,
+                                            :happy_hour, :coffee, :delivery, :ac,
+                                            :wifi, :cards, :tickets, :outside, :club,
+                                            :vegetarian, :latitude, :longitude,
+                                            :cuisine_id)
+    rp[:status] = params[:restaurant][:status].to_i
+    return rp
+  end
+
+  def restaurant_status
+    @restaurant.available? ? @status = false : @status = true
   end
 end
