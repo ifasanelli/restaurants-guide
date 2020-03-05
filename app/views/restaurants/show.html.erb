@@ -157,6 +157,9 @@
 
 <div class="container">
   <div class="col-sm-5">
+    <% if user_signed_in? %>
+      <%= link_to 'Editar', edit_restaurant_path(@restaurant), class:"btn btn-warning" %>
+    <% end %>
     <%= link_to 'Voltar', root_path, class:"btn btn-secondary" %>
   </div>
 </div><br><br>

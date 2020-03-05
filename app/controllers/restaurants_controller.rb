@@ -1,5 +1,5 @@
 class RestaurantsController < ApplicationController
-  before_action :find_restaurant, only: %i[show]
+  before_action :find_restaurant, only: %i[show edit update]
   before_action :authenticate_user!, only: %i[index new create]
 
   def index
@@ -13,6 +13,10 @@ class RestaurantsController < ApplicationController
     @restaurant = Restaurant.new
   end
 
+  def edit
+    @cuisines = Cuisine.all
+  end
+
   def create
     @restaurant = Restaurant.new(restaurant_params)
     if @restaurant.save
@@ -21,6 +25,15 @@ class RestaurantsController < ApplicationController
     else
       @cuisines = Cuisine.all
       render :new
+    end
+  end
+
+  def update
+    if @restaurant.update(restaurant_params)
+      redirect_to @restaurant
+    else
+      @cuisines = Cuisine.all
+      render :edit
     end
   end
 

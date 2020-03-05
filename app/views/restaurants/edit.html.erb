@@ -1,0 +1,107 @@
+<div class="container">
+  <h1>Editar Restaurante</h1><br>
+
+  <div class="col-sm-10">
+      <% if @restaurant.errors.any?%>
+          <p>Você deve corrigir os erros para continuar:</p>
+
+          <% @restaurant.errors.full_messages.each do |message|  %>
+              <p><%= message %></p>
+          <% end %>
+      <% end %>
+  </div>
+
+  <%= form_with model: @restaurant do |f| %>
+      <div class="form-group">
+          <%= f.label :name, 'Nome:' %>
+          <%= f.text_field :name, class:"form-control" %>
+      </div>
+      <div class="form-group">
+        <%= f.label :address, 'Endereço:' %>
+        <%= f.text_field :address, class:"form-control" %>
+      </div>
+      <div class="form-group">
+        <%= f.label :neighborhood, 'Bairro:' %>
+        <%= f.text_field :neighborhood, class:"form-control" %>
+      </div>
+      <div class="form-group">
+        <%= f.label :city, 'Cidade:' %>
+        <%= f.text_field :city, class:"form-control" %>
+      </div>
+      <div class="form-group">
+        <%= f.label :phone, 'Telefone:' %>
+        <%= f.text_field :phone, class:"form-control" %>
+      </div>
+      <div class="form-group">
+        <%= f.label :phone2, 'Telefone2:' %>
+        <%= f.text_field :phone2, class:"form-control" %>
+      </div>
+      <div class="form-group">
+        <%= f.label :cost, 'Custo:' %>
+        <%= f.text_field :cost, class:"form-control" %>
+      </div>
+      <div class="form-group">
+        <%= f.label :timmings, 'Horários:' %>
+        <%= f.text_field :timmings, class:"form-control" %>
+      </div>
+      <div class="form-group">
+        <%= f.label :happy_hour, 'Happy hour:' %>
+        <%= f.text_field :happy_hour, class:"form-control" %>
+      </div>
+      <div class="form-group">
+        <%= f.label :latitude, 'Latitude:' %>
+        <%= f.text_field :latitude, class:"form-control" %>
+      </div>
+      <div class="form-group">
+        <%= f.label :longitude, 'Longitude:' %>
+        <%= f.text_field :longitude, class:"form-control" %>
+      </div>
+      <div class="form-group">
+        <%= f.label :cuisine_id, 'Cozinha', class:"my-1 mr-2" %>
+        <%= f.collection_select(:cuisine_id, @cuisines, :id, :name, class:"custom-select my-1 mr-sm-2") %>
+      </div>
+      <div class="form-check form-check-inline">
+        <%= f.check_box(:coffee, class:"form-check-input") %>
+        <%= f.label(:coffee, "Café", class:"form-check-label") %>
+      </div>
+      <div class="form-check form-check-inline">
+        <%= f.check_box(:delivery, class:"form-check-input") %>
+        <%= f.label(:delivery, "Entrega", class:"form-check-label") %>
+      </div>
+      <div class="form-check form-check-inline">
+        <%= f.check_box(:ac, class:"form-check-input") %>
+        <%= f.label(:ac, "Ar-condicionado", class:"form-check-label") %>
+      </div>
+      <div class="form-check form-check-inline">
+        <%= f.check_box(:wifi, class:"form-check-input") %>
+        <%= f.label(:wifi, "Wi-fi", class:"form-check-label") %>
+      </div>
+      <div class="form-check form-check-inline">
+        <%= f.check_box(:cards, class:"form-check-input") %>
+        <%= f.label(:cards, "Cartões", class:"form-check-label") %>
+      </div>
+      <div class="form-check form-check-inline">
+        <%= f.check_box(:tickets, class:"form-check-input") %>
+        <%= f.label(:tickets, "Tickets", class:"form-check-label") %>
+      </div>
+      <div class="form-check form-check-inline">
+        <%= f.check_box(:outside, class:"form-check-input") %>
+        <%= f.label(:outside, "Lugar ao ar livre", class:"form-check-label") %>
+      </div>
+      <div class="form-check form-check-inline">
+        <%= f.check_box(:club, class:"form-check-input") %>
+        <%= f.label(:club, "Balada", class:"form-check-label") %>
+      </div>
+      <div class="form-check form-check-inline">
+        <%= f.check_box(:vegetarian, class:"form-check-input") %>
+        <%= f.label(:vegetarian, "Vegetariano", class:"form-check-label") %>
+      </div><br><br>
+      <div class="form-group">
+          <%= f.submit 'Salvar' %>
+      </div>
+  <% end %>
+
+  <div class="col-sm-5">
+      <%= link_to 'Voltar', restaurants_path, class:"btn btn-secondary" %>
+  </div><br><br>
+</div>
