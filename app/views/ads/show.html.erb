@@ -1,0 +1,23 @@
+<div class="container">
+  <h2>Anúncio</h2>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Nome</th>
+        <th scope="col">Restaurante</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><%= @ad.name %></td>
+        <td><%= @ad.restaurant.name %></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="col-sm-5 etc-pdn-top">
+    <%= link_to 'Voltar', ads_path, class:"btn btn-outline-dark" %>
+  </div>
+
+</div>

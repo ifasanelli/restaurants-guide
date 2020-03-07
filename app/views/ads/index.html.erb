@@ -1,0 +1,20 @@
+<div class="container">
+
+  <h2>Anúncios</h2>
+  <table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">Nome</th>
+        <th scope="col">Restaurante</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @ads.each do |ad|  %>
+          <tr>
+              <td><%= link_to ad.name, ad_path(ad.id), class:"text-dark" %></td>
+              <td><%= ad.restaurant.name %></td>
+          </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

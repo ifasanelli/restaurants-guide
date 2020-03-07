@@ -10,7 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_05_011913) do
+ActiveRecord::Schema.define(version: 2020_03_07_025139) do
+
+  create_table "ads", force: :cascade do |t|
+    t.string "name"
+    t.integer "restaurant_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["restaurant_id"], name: "index_ads_on_restaurant_id"
+  end
 
   create_table "cuisines", force: :cascade do |t|
     t.string "name"

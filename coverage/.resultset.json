@@ -18,11 +18,60 @@
           null
         ]
       },
+      "/home/italo/projetos/github/restaurants-guide/app/models/ad.rb": {
+        "lines": [
+          1,
+          1,
+          null
+        ]
+      },
       "/home/italo/projetos/github/restaurants-guide/app/models/cuisine.rb": {
         "lines": [
           1,
           1,
           null,
+          null
+        ]
+      },
+      "/home/italo/projetos/github/restaurants-guide/app/models/restaurant.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          1,
+          null,
+          null
+        ]
+      },
+      "/home/italo/projetos/github/restaurants-guide/app/controllers/ads_controller.rb": {
+        "lines": [
+          1,
+          1,
+          null,
+          1,
+          1,
+          null,
+          null,
+          1,
+          1,
+          null,
+          null
+        ]
+      },
+      "/home/italo/projetos/github/restaurants-guide/app/controllers/application_controller.rb": {
+        "lines": [
+          1,
           null
         ]
       },
@@ -70,33 +119,6 @@
           null,
           1,
           9,
-          null,
-          null
-        ]
-      },
-      "/home/italo/projetos/github/restaurants-guide/app/controllers/application_controller.rb": {
-        "lines": [
-          1,
-          null
-        ]
-      },
-      "/home/italo/projetos/github/restaurants-guide/app/models/restaurant.rb": {
-        "lines": [
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
-          null,
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
-          null,
-          1,
           null,
           null
         ]
@@ -193,6 +215,6 @@
         ]
       }
     },
-    "timestamp": 1583435298
+    "timestamp": 1583550481
   }
 }

@@ -39,7 +39,7 @@ feature 'Admin register a cuisine' do
     click_on 'Salvar'
 
     expect(page).to have_content('Você deve corrigir os erros para continuar:')
-    expect(page).to have_content('Fabricante já existente')
+    expect(page).to have_content('Cozinha já existente')
     expect(page).to have_content('Voltar')
   end
 end
