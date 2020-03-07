@@ -26,6 +26,7 @@ class CuisinesController < ApplicationController
 
   def update
     if @cuisine.update(cuisine_params)
+      flash[:notice] = 'Cozinha atualizada com sucesso!'
       redirect_to @cuisine
     else
       render :edit

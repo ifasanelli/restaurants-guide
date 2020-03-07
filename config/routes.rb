@@ -5,5 +5,5 @@ Rails.application.routes.draw do
   get 'search', to: 'home#search'
   resources :cuisines, only: %i[index show edit update new create]
   resources :restaurants, only: %i[index show new create edit update]
-  resources :ads, only: %i[index show]
+  resources :ads, only: %i[index show new create]
 end

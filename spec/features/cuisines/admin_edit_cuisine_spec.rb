@@ -15,6 +15,7 @@ feature 'Admin edit a cuisine' do
     click_on 'Salvar'
 
     expect(page).to have_content('Francesa')
+    expect(page).to have_content('Cozinha atualizada com sucesso!')
     expect(page).to have_content('Voltar')
   end
   scenario 'and validates empty fields' do

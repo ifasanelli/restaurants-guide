@@ -1,0 +1,33 @@
+<div class="container">
+
+  <h2>Novo acessório</h2>
+
+  <%= form_for @ad do |f| %>
+    <div class="form-group row">
+      <%= f.label :name, 'Nome:', class:"col-sm-2" %>
+      <%= f.text_field :name, class:"form-control col-sm-8" %>
+    </div>
+    <div class="form-group row">
+      <%= f.label :restaurant_id, 'Restaurante:', class:"col-sm-2" %>
+      <%= f.collection_select(:restaurant_id, @restaurants, :id, :name, class:"custom-select my-1 mr-sm-2") %>
+    </div>
+    <div class="form-group row">
+      <div class="col-sm-5">
+          <%= f.submit 'Salvar', class: "btn btn-dark" %>
+      </div>
+    </div>
+  <% end %>
+
+  <div class="col-sm-10">
+      <% if @ad.errors.any?%>
+          <p>Você deve corrigir os erros para continuar:</p>
+          <% @ad.errors.full_messages.each do |message|  %>
+              <p><%= message %></p>
+          <% end %>
+      <% end %>
+  </div>
+
+  <%= link_to 'Voltar', ads_path, class:"btn btn-outline-dark etc-pdn-horz" %>
+
+
+</div>

@@ -13,6 +13,7 @@ feature 'Admin edit a restaurant' do
     click_on 'Salvar'
 
     expect(page).to have_content('Gourmetzinho')
+    expect(page).to have_content('Restaurante atualizado com sucesso!')
     expect(page).to have_content('Voltar')
   end
   scenario 'and validates empty fields' do

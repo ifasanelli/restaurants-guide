@@ -31,6 +31,7 @@ class RestaurantsController < ApplicationController
 
   def update
     if @restaurant.update(restaurant_params)
+      flash[:notice] = 'Restaurante atualizado com sucesso!'
       redirect_to @restaurant
     else
       @cuisines = Cuisine.all
