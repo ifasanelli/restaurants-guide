@@ -16,7 +16,8 @@
     </tbody>
   </table>
 
-  <div class="col-sm-5 etc-pdn-top">
+  <div class="col-sm-5">
+    <%= link_to 'Deletar', ad_path(@ad), method: :delete, class: "btn btn-danger", data: { confirm: 'Quer apagar este anúncio?' } %>
     <%= link_to 'Voltar', ads_path, class:"btn btn-outline-dark" %>
   </div>
 
