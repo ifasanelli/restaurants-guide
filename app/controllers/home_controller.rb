@@ -3,6 +3,7 @@ class HomeController < ApplicationController
   def index; end
 
   def search
+    @ads = Ad.all
     @q = params[:q]
   end
 

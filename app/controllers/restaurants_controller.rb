@@ -7,7 +7,9 @@ class RestaurantsController < ApplicationController
     @restaurants = Restaurant.all
   end
 
-  def show; end
+  def show
+    @ads = Ad.all
+  end
 
   def new
     @cuisines = Cuisine.all

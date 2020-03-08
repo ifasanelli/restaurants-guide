@@ -6,12 +6,14 @@
       <tr>
         <th scope="col">Nome</th>
         <th scope="col">Restaurante</th>
+        <th scope="col">Imagem</th>
       </tr>
     </thead>
     <tbody>
       <tr>
         <td><%= @ad.name %></td>
         <td><%= @ad.restaurant.name %></td>
+        <td><image src="<%=(url_for(@ad.mini_ad))%>"></td>
       </tr>
     </tbody>
   </table>

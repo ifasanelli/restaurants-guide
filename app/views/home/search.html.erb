@@ -25,7 +25,11 @@
       </table><br><br>
     </div>
     <div class="col-3">
-      ADS
+       <% @ads.each do |ad|  %>
+        <% if ad.mini_ad.attached? %>
+          <td><%= link_to( image_tag(ad.mini_ad, class:"pict-format"), restaurant_path(ad.restaurant.id)) %></td>
+        <% end %>
+      <% end %>
     </div>
   </div>
 </div>

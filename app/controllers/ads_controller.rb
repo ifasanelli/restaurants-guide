@@ -33,7 +33,7 @@ class AdsController < ApplicationController
   private
 
   def ads_params
-    params.require(:ad).permit(:name, :restaurant_id)
+    params.require(:ad).permit(:name, :restaurant_id, :mini_ad)
   end
 
   def set_restaurants
