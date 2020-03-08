@@ -45,6 +45,13 @@
       </div><br>
       <div class="row">
         <div class="col-3 col-sm-12">
+          <p>
+            <%= image_tag("map", alt: "Map", class:'map') %>
+          </p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-3 col-sm-12">
           <strong>Cozinha</strong>
         </div>
       </div>
@@ -153,9 +160,9 @@
       <% end %>
     </div>
     <div class="col-6">
-      <p>
-        <%= image_tag("map", alt: "Map", class:'map') %>
-      </p>
+      <P>CARDÁPIO</P>
+      <p>FOTOS</p>
+      <p>COMENTÁRIOS</p>
     </div>
     <div class="col-3">
        <% @ads.each do |ad|  %>
