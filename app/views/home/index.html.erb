@@ -1,6 +1,10 @@
-<div class="container">
-  <%= form_tag "/search", method: :get, class:"form-inline my-2 my-lg-0" do %>
-    <%= text_field_tag :q, nil, placeholder: 'Buscar', class:"form-control mr-sm-2" %>
-    <%= submit_tag 'Buscar', class:"btn btn-outline-dark my-2 my-sm-0" %>
-  <% end %>
+<div class="container ctn-full">
+  <div class="its-auto">
+    <%= form_tag "/search", method: :get, class:"form-inline row" do %>
+      <div class="col d-flex justify-content-center">
+        <%= text_field_tag :q, nil, placeholder: 'Buscar', class:"form-control search" %>
+        <%= submit_tag 'Buscar', class:"btn btn-outline-dark mb-2" %>
+      </div>
+    <% end %>
+  </div>
 </div>
