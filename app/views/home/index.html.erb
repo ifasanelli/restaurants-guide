@@ -1,10 +1,8 @@
-<div class="container ctn-full">
-  <div class="its-auto">
-    <%= form_tag "/search", method: :get, class:"form-inline row" do %>
-      <div class="col d-flex justify-content-center">
-        <%= text_field_tag :q, nil, placeholder: 'Buscar', class:"form-control search" %>
-        <%= submit_tag 'Buscar', class:"btn btn-outline-dark mb-2" %>
-      </div>
-    <% end %>
-  </div>
+<div class="container">
+  <%= form_tag "/search", method: :get, class:"input-group px-10 py-10" do %>
+    <%= text_field_tag :q, nil, placeholder: 'Buscar', class:"form-control" %>
+    <div class="input-group-append">
+      <%= submit_tag 'Buscar', class:"btn btn-outline-dark" %>
+    </div>
+  <% end %>
 </div>

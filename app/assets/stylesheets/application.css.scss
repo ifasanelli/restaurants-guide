@@ -37,11 +37,12 @@
   margin-right: 5px;
 }
 
-.ctn-full {
-  height: 500px;
+.px-10 {
+  padding-left: ($spacer * 15) !important;
+  padding-right: ($spacer * 15) !important;
 }
 
-.its-auto{
-  margin-top: 200px;
-  margin-bottom: auto;
+.py-10 {
+  padding-top: ($spacer * 10) !important;
+  padding-bottom: ($spacer * 10) !important;
 }
