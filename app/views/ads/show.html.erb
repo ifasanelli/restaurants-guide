@@ -13,7 +13,7 @@
       <tr>
         <td><%= @ad.name %></td>
         <td><%= @ad.restaurant.name %></td>
-        <td><image src="<%=(url_for(@ad.mini_ad))%>"></td>
+        <td><image src="<%=(url_for(@ad.mini_ad))%>", id="<%=@ad.name%>"></td>
       </tr>
     </tbody>
   </table>

@@ -9,11 +9,13 @@ feature 'Admin create an ad' do
 
     visit ads_path
     click_on 'Novo anúncio'
-    fill_in 'Nome:', with: 'Campanha de carnaval'
+    fill_in 'Nome:', with: 'Campanha-de-carnaval'
     select 'Russo', from: 'Restaurante:'
+    attach_file('Imagem', Rails.root.join('spec/fixtures/ads.jpg'))
     click_on 'Salvar'
 
-    expect(page).to have_content('Campanha de carnaval')
+    expect(page).to have_content('Campanha-de-carnaval')
+    expect(page).to have_css("#Campanha-de-carnaval")
     expect(page).to have_content('Voltar')
   end
   scenario 'validates empty fields' do
