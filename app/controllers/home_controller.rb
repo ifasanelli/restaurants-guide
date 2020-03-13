@@ -7,6 +7,8 @@ class HomeController < ApplicationController
     @q = params[:q]
   end
 
+  def test; end
+
   private
 
   def search_restaurant
