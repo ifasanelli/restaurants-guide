@@ -3,7 +3,6 @@ Rails.application.routes.draw do
   devise_for :users
   root to: 'home#index'
   get 'search', to: 'home#search'
-  get 'test', to: 'home#test'
   resources :cuisines, only: %i[index show edit update new create]
   resources :restaurants, only: %i[index show new create edit update]
   resources :ads, only: %i[index show new create destroy]

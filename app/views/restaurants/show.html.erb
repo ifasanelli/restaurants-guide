@@ -162,15 +162,23 @@
     <!-- FOTOS, CARDÁPIOS & COMENTÁRIOS -->
     <div class="col-6">
       <h2 class="mb-1" style="font-size:1.3em;">FOTOS</h2>
-      <%= button_tag image_tag("1240x320.jpg", class:"img-thumbnail", style:"width:100px;height:100px;", data:{ toggle: "modal", target: '#exampleModal' }), style:"border:10px;background:transparent;", class:" px-1" %>
-      <%= button_tag image_tag("2240x320.jpg", class:"img-thumbnail", style:"width:100px;height:100px;", data:{ toggle: "modal", target: '#exampleModal' }), style:"border:10px;background:transparent;", class:" px-1" %>
-      <%= button_tag image_tag("3240x320.jpg", class:"img-thumbnail", style:"width:100px;height:100px;", data:{ toggle: "modal", target: '#exampleModal' }), style:"border:10px;background:transparent;", class:" px-1" %>
-      <%= button_tag image_tag("4240x320.png", class:"img-thumbnail", style:"width:100px;height:100px;", data:{ toggle: "modal", target: '#exampleModal' }), style:"border:10px;background:transparent;", class:" px-1" %>
+
+      <%= link_to image_tag("photo1-thumbnail.jpg", alt: "Photo 1",
+                          class: "img-responsive",
+                          data: { toggle: "modal", target: "#myModal" }),
+                          "#myGallery", data: { slide_to: "0" } %>
+
+      <%= link_to image_tag("photo2-thumbnail.jpg", alt: "Photo 2",
+                          class: "img-responsive",
+                          data: { toggle: "modal", target: "#myModal" }),
+                          "#myGallery", data: { slide_to: "1" } %>
+
+      <%= link_to image_tag("photo3-thumbnail.jpg", alt: "Photo 3",
+                          class: "img-responsive",
+                          data: { toggle: "modal", target: "#myModal" }),
+                          "#myGallery", data: { slide_to: "2" } %>
+
       <h2 class="mt-3 mb-1" style="font-size:1.3em;">CARDÁPIO</h2>
-      <%= button_tag image_tag("4240x320.png", class:"img-thumbnail", style:"width:100px;height:100px;", data:{ toggle: "modal", target: '#exampleModal' }), style:"border:10px;background:transparent;", class:" px-1" %>
-      <%= button_tag image_tag("3240x320.jpg", class:"img-thumbnail", style:"width:100px;height:100px;", data:{ toggle: "modal", target: '#exampleModal' }), style:"border:10px;background:transparent;", class:" px-1" %>
-      <%= button_tag image_tag("2240x320.jpg", class:"img-thumbnail", style:"width:100px;height:100px;", data:{ toggle: "modal", target: '#exampleModal' }), style:"border:10px;background:transparent;", class:" px-1" %>
-      <%= button_tag image_tag("1240x320.jpg", class:"img-thumbnail", style:"width:100px;height:100px;", data:{ toggle: "modal", target: '#exampleModal' }), style:"border:10px;background:transparent;", class:" px-1" %>
       <h2 class="mt-3 mb-1" style="font-size:1.3em;">COMENTÁRIOS</h2>
     </div>
     <!-- ADS -->
@@ -196,12 +204,54 @@
 
 
 <!-- Modal -->
-<div class="modal fade" id="exampleModal">
-  <div class="modal-dialog modal-dialog-centered">
+<div class="modal fade bd-example-modal-lg" id="myModal">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
     <div class="modal-content">
 
-      <%= image_tag("map.png", class:"img-responsive") %>
+        <!--CAROUSEL CODE GOES HERE-->
+        <div id="myGallery" class="carousel slide" data-interval="false">
+          <div class="carousel-inner">
 
-    </div>
-  </div>
-</div>
+            <div class="carousel-item active">
+              <%= image_tag("photo1.jpg",
+                            alt: "Image description here",
+                            class: "img-responsive") %>
+                <div class="carousel-caption">
+                  <h3>Caption 1 here</h3>
+                  <p>Caption 1 description here</p>
+                </div>
+            </div>
+
+            <div class="carousel-item">
+              <%= image_tag("photo2.jpg",
+                            alt: "Image description here",
+                            class: "img-respponsive") %>
+                <div class="carousel-caption">
+                  <h3>Caption 2 here</h3>
+                    <p>Caption 2 description here</p>
+                </div>
+            </div>
+
+            <div class="carousel-item">
+              <%= image_tag("photo3.jpg",
+                            alt: "Image description here",
+                            class: "img-respponsive") %>
+                <div class="carousel-caption">
+                  <h3>Caption 3 here</h3>
+                    <p>Caption 3 description here</p>
+                </div>
+            </div>
+          </div> <!-- end of carousel-inner -->
+          <a class="carousel-control-prev" href="#myGallery" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          </a>
+          <a class="carousel-control-next" href="#myGallery" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          </a>
+        </div> <!-- end of myGallery -->
+
+        <!-- end od carousel -->
+      
+    </div> <!-- end of modal-content -->
+  </div> <!-- end of modal-dialog -->
+</div> <!-- end of myModal -->
