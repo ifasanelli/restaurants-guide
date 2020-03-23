@@ -12,15 +12,10 @@
   </div>
 
   <%= form_with model: @restaurant do |f| %>
-      <div class="container">
-        <div class="row">
-          <span style="margin-right: 5px;">Ativar</span>
-          <div class="col-sm-12 custom-control custom-switch">
-            <%= f.check_box(:status, checked: @status, class:"custom-control-input", id:"chck-box") %>
-            <%= f.label(:status, "Desativar", class:"custom-control-label") %>
-          </div>
-        </div>
-      </div><br>
+      <div class="form-group px-4 pt-3 pb-1" style="background-color: rgba(255, 0, 0, 0.2); border-radius: 5px;">
+          <%= f.check_box(:status, checked: @status, id:"chck-box") %>
+          <%= f.label(:status, "Desativar") %>
+      </div>
       <div class="form-group">
           <%= f.label :name, 'Nome:' %>
           <%= f.text_field :name, class:"form-control" %>
