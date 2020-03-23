@@ -1,21 +1,21 @@
-<div class="container">
-  <% if @restaurant.unavailable? %>
+<% if @restaurant.unavailable? %>
+  <div class="container">
     <div class="alert alert-danger" role="alert">
       <p>Inativo</p>
-    <% end %>
-</div>
-</div>
+    </div>
+  </div>
+<% end %>
 
-<div class="container">
+<div class="container mb-4">
   <h1><%= @restaurant.name %></h1>
-</div><br>
+</div>
 
-<div class="container">
+<div class="container mb-4">
   <div class="row row-cols-3">
-    <div class="col-3">
+    <div class="col-3 grid-divider">
       <div class="row">
         <div class="col-3 col-sm-12">
-          <strong>Telefones</strong>
+          <h3 style="font-size:1.1em;">Telefones</h3>
         </div>
       </div>
       <div class="row">
@@ -27,10 +27,11 @@
         <div class="col-3 col-sm-12">
           <%= @restaurant.phone2 %>
         </div>
-      </div><br>
+      </div>
+      <hr width=100%>
       <div class="row">
         <div class="col-3 col-sm-12">
-          <strong>Endereço</strong>
+          <h3 style="font-size:1.1em;">Endereço</h3>
         </div>
       </div>
       <div class="row">
@@ -38,61 +39,64 @@
           <%= @restaurant.address %>
         </div>
       </div>
-      <div class="row">
+      <div class="row mb-3">
         <div class="col-3 col-sm-12">
           <%= @restaurant.neighborhood %>, <%= @restaurant.city %>
-        </div>
-      </div><br>
-      <div class="row">
-        <div class="col-3 col-sm-12">
-          <p>
-            <%= image_tag("map", alt: "Map", class:'map') %>
-          </p>
         </div>
       </div>
       <div class="row">
         <div class="col-3 col-sm-12">
-          <strong>Cozinha</strong>
+          <iframe src="<%= @restaurant.map %>" width="260" height="260" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+        </div>
+      </div>
+      <hr width=100%>
+      <div class="row">
+        <div class="col-3 col-sm-12">
+          <h3 style="font-size:1.1em;">Cozinha</h3>
         </div>
       </div>
       <div class="row">
         <div class="col-3 col-sm-12">
           <%= @restaurant.cuisine.name %>
         </div>
-      </div><br>
+      </div>
+      <hr width=100%>
       <div class="row">
         <div class="col-3 col-sm-12">
-          <strong>Horários</strong>
+          <h3 style="font-size:1.1em;">Horários</h3>
         </div>
       </div>
       <div class="row">
         <div class="col-3 col-sm-8">
           <%= @restaurant.timmings %>
         </div>
-      </div><br>
+      </div>
+      <hr width=100%>
        <div class="row">
         <div class="col-3 col-sm-12">
-          <strong>Happy Hour</strong>
+          <h3 style="font-size:1.1em;">Happy Hour</h3>
         </div>
       </div>
       <div class="row">
         <div class="col-3 col-sm-8">
           <%= @restaurant.happy_hour %>
         </div>
-      </div><br>
+      </div>
+      <hr width=100%>
       <div class="row">
         <div class="col-3 col-sm-12">
-          <strong>Custo médio</strong>
+          <h3 style="font-size:1.1em;">Custo médio</h3>
         </div>
       </div>
       <div class="row">
         <div class="col-3 col-sm-12">
           R$<%= @restaurant.cost %>
         </div>
-      </div><br>
+      </div>
+      <hr width=100%>
       <div class="row">
         <div class="col-3 col-sm-12">
-          <strong>Destaques</strong>
+          <h3 style="font-size:1.1em;">Destaques</h3>
         </div>
       </div>
       <% if @restaurant.wifi %>
@@ -152,34 +156,42 @@
         </div>
       <% end %>
       <% if @restaurant.vegetarian %>
-        <div class="row">
+        <div class="row mb-3">
           <div class="col-3 col-sm-12">
             <i class="material-icons" style="color: #008000">done</i> Vegetariano
           </div>
-        </div><br>
+        </div>
       <% end %>
     </div>
     <!-- FOTOS, CARDÁPIOS & COMENTÁRIOS -->
-    <div class="col-6">
-      <h2 class="mb-1" style="font-size:1.3em;">FOTOS</h2>
+    <div class="col-6 grid-divider">
+      <h2 class="mb-1" style="font-size:1.1em;">FOTOS</h2>
 
-      <%= link_to image_tag("photo1-thumbnail.jpg", alt: "Photo 1",
-                          class: "img-responsive",
-                          data: { toggle: "modal", target: "#myModal" }),
-                          "#myGallery", data: { slide_to: "0" } %>
+      <% if @restaurant.pictures.attached? %>
+        <% @restaurant.pictures.each_with_index do |picture, index| %>
+          <%= link_to image_tag(picture, class: "img-responsive thumb-img",
+                                data: { toggle: "modal",
+                                target: "#myModal" }),
+                                "#myGallery",
+                                data: { slide_to: index } %>
+        <% end %>
+      <% end %>
 
-      <%= link_to image_tag("photo2-thumbnail.jpg", alt: "Photo 2",
-                          class: "img-responsive",
-                          data: { toggle: "modal", target: "#myModal" }),
-                          "#myGallery", data: { slide_to: "1" } %>
 
-      <%= link_to image_tag("photo3-thumbnail.jpg", alt: "Photo 3",
-                          class: "img-responsive",
-                          data: { toggle: "modal", target: "#myModal" }),
-                          "#myGallery", data: { slide_to: "2" } %>
+      <h2 class="mt-3 mb-1" style="font-size:1.1em;">CARDÁPIO</h2>
 
-      <h2 class="mt-3 mb-1" style="font-size:1.3em;">CARDÁPIO</h2>
-      <h2 class="mt-3 mb-1" style="font-size:1.3em;">COMENTÁRIOS</h2>
+      <% if @restaurant.menus.attached? %>
+        <% @restaurant.menus.each_with_index do |menu, index| %>
+          <%= link_to image_tag(menu, class: "img-responsive thumb-img",
+                                data: { toggle: "modal",
+                                target: "#myModal2" }),
+                                "#myGallery2",
+                                data: { slide_to: index } %>
+        <% end %>
+      <% end %>
+
+      <h2 class="mt-3 mb-1" style="font-size:1.1em;">COMENTÁRIOS</h2>
+
     </div>
     <!-- ADS -->
     <div class="col-3">
@@ -190,57 +202,40 @@
       <% end %>
     </div>
   </div>
-</div><br><br>
+</div>
 
-<div class="container">
+<div class="container mb-4">
   <div class="col-sm-5">
     <% if user_signed_in? %>
       <%= link_to 'Editar', edit_restaurant_path(@restaurant), class:"btn btn-warning" %>
     <% end %>
     <%= link_to 'Voltar', root_path, class:"btn btn-secondary" %>
   </div>
-</div><br><br>
+</div>
 
 
 
 <!-- Modal -->
-<div class="modal fade bd-example-modal-lg" id="myModal">
-  <div class="modal-dialog modal-dialog-centered modal-lg">
+<div class="modal fade bd-example-modal" id="myModal">
+  <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
 
-        <!--CAROUSEL CODE GOES HERE-->
+        <!--Pictures carousel code-->
         <div id="myGallery" class="carousel slide" data-interval="false">
           <div class="carousel-inner">
 
-            <div class="carousel-item active">
-              <%= image_tag("photo1.jpg",
-                            alt: "Image description here",
-                            class: "img-responsive") %>
-                <div class="carousel-caption">
-                  <h3>Caption 1 here</h3>
-                  <p>Caption 1 description here</p>
+            <% @restaurant.pictures.each_with_index do |picture, index| %>
+              <% if index == 0 %>
+                <div class="carousel-item active">
+                  <%= image_tag(picture, class: "img-responsive") %>
                 </div>
-            </div>
+              <% else %>
+                <div class="carousel-item">
+                  <%= image_tag(picture, class: "img-responsive") %>
+                </div>
+              <% end %>
+            <% end %>
 
-            <div class="carousel-item">
-              <%= image_tag("photo2.jpg",
-                            alt: "Image description here",
-                            class: "img-respponsive") %>
-                <div class="carousel-caption">
-                  <h3>Caption 2 here</h3>
-                    <p>Caption 2 description here</p>
-                </div>
-            </div>
-
-            <div class="carousel-item">
-              <%= image_tag("photo3.jpg",
-                            alt: "Image description here",
-                            class: "img-respponsive") %>
-                <div class="carousel-caption">
-                  <h3>Caption 3 here</h3>
-                    <p>Caption 3 description here</p>
-                </div>
-            </div>
           </div> <!-- end of carousel-inner -->
           <a class="carousel-control-prev" href="#myGallery" role="button" data-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -248,10 +243,46 @@
           <a class="carousel-control-next" href="#myGallery" role="button" data-slide="next">
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
           </a>
-        </div> <!-- end of myGallery -->
+        </div> <!-- end of carousel myGallery -->
 
-        <!-- end od carousel -->
-      
     </div> <!-- end of modal-content -->
   </div> <!-- end of modal-dialog -->
 </div> <!-- end of myModal -->
+
+<!-- Modal 2 -->
+<div class="modal fade bd-example-modal" id="myModal2">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+
+        <!--Pictures carousel code-->
+        <div id="myGallery2" class="carousel slide" data-interval="false">
+          <div class="carousel-inner">
+
+            <% @restaurant.menus.each_with_index do |menu, index| %>
+              <% if index == 0 %>
+                <div class="carousel-item active">
+                  <%= image_tag(menu, class: "img-responsive") %>
+                </div>
+              <% else %>
+                <div class="carousel-item">
+                  <%= image_tag(menu, class: "img-responsive") %>
+                </div>
+              <% end %>
+            <% end %>
+
+          </div> <!-- end of carousel-inner -->
+          <a class="carousel-control-prev" href="#myGallery2" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          </a>
+          <a class="carousel-control-next" href="#myGallery2" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          </a>
+        </div> <!-- end of carousel myGallery2 -->
+
+    </div> <!-- end of modal-content -->
+  </div> <!-- end of modal-dialog -->
+</div> <!-- end of myModal -->
+
+<script>
+  $('#myModal').modal('handleUpdate')
+</script>

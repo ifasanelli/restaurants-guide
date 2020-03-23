@@ -13,7 +13,7 @@
       <% @ads.each do |ad|  %>
           <tr>
               <td><%= link_to ad.name, ad_path(ad.id), class:"text-dark" %></td>
-              <td><%= ad.restaurant.name %></td>
+              <td><%= link_to ad.restaurant.name, restaurant_path(ad.restaurant), class:"text-dark" %></td>
           </tr>
       <% end %>
     </tbody>

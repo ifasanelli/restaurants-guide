@@ -54,7 +54,8 @@ class RestaurantsController < ApplicationController
                                             :happy_hour, :coffee, :delivery,
                                             :ac, :wifi, :cards, :tickets,
                                             :outside, :club, :vegetarian,
-                                            :latitude, :longitude, :cuisine_id)
+                                            :map, :cuisine_id,
+                                            pictures: [], menus: [])
     rp[:status] = params[:restaurant][:status].to_i
     rp
   end

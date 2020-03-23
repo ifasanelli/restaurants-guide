@@ -33,16 +33,26 @@
   margin: 5px;
 }
 
-.search {
-  margin-right: 5px;
+.grid-divider{
+  border-right: 1.4px solid #e5e5e5;
 }
 
-.px-10 {
-  padding-left: ($spacer * 15) !important;
-  padding-right: ($spacer * 15) !important;
+.search-link:hover{
+  color: rgb(220, 0, 0);
+  text-decoration:none;
 }
 
-.py-10 {
-  padding-top: ($spacer * 10) !important;
-  padding-bottom: ($spacer * 10) !important;
+.thumb-img{
+  width: 100px;
+  height: 100px;
+}
+
+.carousel-control-next-icon {
+  background-image : url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23ff0000' viewBox='0 0 8 8'%3E%3Cpath d='M1.5 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3E%3C/svg%3E");
+  color: red;
+}
+
+.carousel-control-prev-icon {
+  background-image : url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23ff0000' viewBox='0 0 8 8'%3E%3Cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3E%3C/svg%3E");
+  color: red;
 }

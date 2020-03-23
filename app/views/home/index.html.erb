@@ -1,8 +1,16 @@
 <div class="container">
-  <%= form_tag "/search", method: :get, class:"input-group px-10 py-10" do %>
-    <%= text_field_tag :q, nil, placeholder: 'Buscar', class:"form-control" %>
-    <div class="input-group-append">
-      <%= submit_tag 'Buscar', class:"btn btn-outline-dark" %>
+  <div class="row justify-content-center align-items-center"  style="height:450px">
+    <div class="col-3 ">
     </div>
-  <% end %>
+    <div class="col-6">
+      <%= form_tag "/search", method: :get, class:"input-group" do %>
+        <%= text_field_tag :q, nil, placeholder: 'Buscar', class:"form-control" %>
+        <div class="input-group-append">
+          <%= submit_tag 'Buscar', class:"btn btn-outline-dark" %>
+        </div>
+      <% end %>
+    </div>
+    <div class="col-3 ">
+    </div>
+  </div>
 </div>

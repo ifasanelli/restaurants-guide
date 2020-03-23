@@ -1,5 +1,7 @@
 class Restaurant < ApplicationRecord
   belongs_to :cuisine
+  has_many_attached :pictures
+  has_many_attached :menus
   enum status: { available: 0, unavailable: 1 }
   validates :name, presence: { message: 'Nome não pode ficar em branco' }
   validates :address, presence: { message: 'Endereço não pode ficar em branco' }
@@ -10,8 +12,6 @@ class Restaurant < ApplicationRecord
   validates :phone2, presence: { message: 'Telefone não pode ficar em branco' }
   validates :cost, presence: { message: 'Custo não pode ficar em branco' }
   validates :timmings, presence: { message: 'Horário não pode ficar em branco' }
-  validates :latitude, presence: { message: 'Latitude não pode '\
+  validates :map, presence: { message: 'URL do mapa não pode '\
                                             'ficar em branco' }
-  validates :longitude, presence: { message: 'Longitude não pode'\
-                                             'ficar em branco' }
 end

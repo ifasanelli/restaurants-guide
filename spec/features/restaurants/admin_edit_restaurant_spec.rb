@@ -33,8 +33,7 @@ feature 'Admin edit a restaurant' do
     fill_in 'Custo:', with: ''
     fill_in 'Horários:', with: ''
     fill_in 'Happy hour:', with: ''
-    fill_in 'Latitude:', with: ''
-    fill_in 'Longitude:', with: ''
+    fill_in 'URL do mapa:', with: ''
     select 'Italiana', from: 'Cozinha'
     click_on 'Salvar'
 
