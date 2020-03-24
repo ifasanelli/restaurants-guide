@@ -15,7 +15,7 @@ feature 'Admin create an ad' do
     click_on 'Salvar'
 
     expect(page).to have_content('Campanha-de-carnaval')
-    expect(page).to have_css("#Campanha-de-carnaval")
+    expect(page).to have_css('#Campanha-de-carnaval')
     expect(page).to have_content('Voltar')
   end
   scenario 'validates empty fields' do

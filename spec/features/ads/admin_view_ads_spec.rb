@@ -15,7 +15,7 @@ feature 'Admin view ads and its details' do
     click_on 'Salvar'
 
     expect(page).to have_content('Campanha-de-carnaval')
-    expect(page).to have_css("#Campanha-de-carnaval")
+    expect(page).to have_css('#Campanha-de-carnaval')
     expect(page).to have_content('Voltar')
   end
 end

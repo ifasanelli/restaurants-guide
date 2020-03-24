@@ -4,6 +4,10 @@ Rails.application.routes.draw do
   root to: 'home#index'
   get 'search', to: 'home#search'
   resources :cuisines, only: %i[index show edit update new create]
-  resources :restaurants, only: %i[index show new create edit update]
+  resources :restaurants do
+    member do
+      delete :delete_image_attachment
+    end
+  end
   resources :ads, only: %i[index show new create destroy]
 end
