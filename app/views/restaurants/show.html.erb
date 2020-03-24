@@ -245,16 +245,17 @@
                 </div>
               <% end %>
             <% end %>
-
           </div> <!-- end of carousel-inner -->
-          <a class="carousel-control-prev" href="#myGallery" role="button" data-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          </a>
-          <a class="carousel-control-next" href="#myGallery" role="button" data-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          </a>
+          <!-- carousel controllers -->
+          <% if @restaurant.pictures.length > 1 %>
+            <a class="carousel-control-prev" href="#myGallery" role="button" data-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            </a>
+            <a class="carousel-control-next" href="#myGallery" role="button" data-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            </a>
+          <% end %><!-- end of carousel controllers -->
         </div> <!-- end of carousel myGallery -->
-
     </div> <!-- end of modal-content -->
   </div> <!-- end of modal-dialog -->
 </div> <!-- end of myModal -->
@@ -294,14 +295,16 @@
                 </div>
               <% end %>
             <% end %>
-
           </div> <!-- end of carousel-inner -->
-          <a class="carousel-control-prev" href="#myGallery2" role="button" data-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          </a>
-          <a class="carousel-control-next" href="#myGallery2" role="button" data-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          </a>
+          <!-- carousel controllers -->
+          <% if @restaurant.menus.length > 1 %>
+            <a class="carousel-control-prev" href="#myGallery2" role="button" data-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            </a>
+            <a class="carousel-control-next" href="#myGallery2" role="button" data-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            </a>
+          <% end %> <!-- end carousel controllers -->
         </div> <!-- end of carousel myGallery2 -->
     </div> <!-- end of modal-content -->
   </div> <!-- end of modal-dialog -->

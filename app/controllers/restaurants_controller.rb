@@ -1,6 +1,6 @@
 class RestaurantsController < ApplicationController
   before_action :find_restaurant, only: %i[show edit update]
-  before_action :authenticate_user!, only: %i[index new create]
+  before_action :authenticate_user!, only: %i[index new create edit update delete]
   before_action :restaurant_status, only: %i[edit update]
 
   def index
