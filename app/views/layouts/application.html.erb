@@ -32,6 +32,10 @@
             <li class="nav-item active">
                 <%= link_to 'Sair', destroy_user_session_path, method: :delete, class: 'nav-link' %><span class="sr-only">(current)</span>
             </li>
+          <% else %>
+            <li class="nav-item active">
+                <%= link_to 'Entrar', new_user_session_path, class: 'nav-link' %><span class="sr-only">(current)</span>
+            </li>
           <% end %>
         </ul>
         <% unless current_page?(root_path) %>

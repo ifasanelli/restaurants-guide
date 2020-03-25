@@ -2,6 +2,7 @@ class RestaurantsController < ApplicationController
   before_action :find_restaurant, only: %i[show edit update]
   before_action :authenticate_user!, only: %i[index new create edit update delete]
   before_action :restaurant_status, only: %i[edit update]
+  before_action :checkAdmin, only: %i[index new create edit update delete]
 
   def index
     @restaurants = Restaurant.all
@@ -68,5 +69,13 @@ class RestaurantsController < ApplicationController
 
   def restaurant_status
     @status = @restaurant.available? ? false : true
+  end
+
+  def admin?
+    current_user.admin == true
+  end
+
+  def checkAdmin
+    redirect_to new_user_session_path unless current_user && current_user.admin?
   end
 end
