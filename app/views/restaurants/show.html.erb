@@ -6,11 +6,11 @@
   </div>
 <% end %>
 
-<div class="container mb-4">
-  <h1><%= @restaurant.name %></h1>
+<div class="container my-5 mx-5">
+  <h1 style="font-size:2.5em;"><%= @restaurant.name %></h1>
 </div>
 
-<div class="container mb-4">
+<div class="container mb-4 mx-5">
   <div class="row row-cols-3">
     <div class="col-3 grid-divider">
       <div class="row">
@@ -165,7 +165,7 @@
     </div>
     <!-- FOTOS, CARDÁPIOS & COMENTÁRIOS -->
     <div class="col-6 grid-divider">
-      <h2 class="mb-1" style="font-size:1.1em;">FOTOS</h2>
+      <h2 class="mb-2" style="font-size:1.1em;">FOTOS</h2>
 
       <% if @restaurant.pictures.attached? %>
         <% @restaurant.pictures.each_with_index do |picture, index| %>
@@ -178,7 +178,7 @@
       <% end %>
 
 
-      <h2 class="mt-3 mb-1" style="font-size:1.1em;">CARDÁPIO</h2>
+      <h2 class="mt-3 mb-2" style="font-size:1.1em;">CARDÁPIO</h2>
 
       <% if @restaurant.menus.attached? %>
         <% @restaurant.menus.each_with_index do |menu, index| %>
@@ -190,7 +190,7 @@
         <% end %>
       <% end %>
 
-      <h2 class="mt-3 mb-2" style="font-size:1.1em;">COMENTÁRIOS</h2>
+      <h2 class="mt-6 mb-2" style="font-size:1.1em;">COMENTÁRIOS</h2>
       <% if user_signed_in? && current_user.admin? %>
         <h3 class="mr-1" style="font-size:1em; float:right;"><%= @restaurant.comments.count %> comentário(s)</h3>
         <br><hr>
@@ -215,9 +215,10 @@
     </div>
     <!-- ADS -->
     <div class="col-3">
-       <% @ads.each do |ad|  %>
+      <h2 class="mb-3 pl-5" style="font-size:1.1em;">Patrocinados</h2>
+      <% @ads.each do |ad|  %>
         <% if ad.mini_ad.attached? %>
-          <td><%= link_to( image_tag(ad.mini_ad, class:"pict-format"), restaurant_path(ad.restaurant.id)) %></td>
+          <td><%= link_to( image_tag(ad.mini_ad, class:"pict-format"), restaurant_path(ad.restaurant.id), class:'pl-5') %></td>
         <% end %>
       <% end %>
     </div>
