@@ -2,6 +2,8 @@ class CommentsController < ApplicationController
   def create
     @restaurant = Restaurant.find(params[:restaurant_id])
     @comment = @restaurant.comments.create(params[:comment].permit(:body))
+    @comment.user = current_user
+    @comment.save
     flash[:alert] = 'Seu comentário será avaliado em breve'
     redirect_to restaurant_path(@restaurant)
   end

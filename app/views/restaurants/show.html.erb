@@ -169,7 +169,7 @@
 
       <% if @restaurant.pictures.attached? %>
         <% @restaurant.pictures.each_with_index do |picture, index| %>
-          <%= link_to image_tag(picture, class: "img-responsive thumb-img",
+          <%= link_to image_tag(picture, class: "img-responsive thumb-img rounded mb-1",
                                 data: { toggle: "modal",
                                 target: "#myModal" }),
                                 "#myGallery",
@@ -182,7 +182,7 @@
 
       <% if @restaurant.menus.attached? %>
         <% @restaurant.menus.each_with_index do |menu, index| %>
-          <%= link_to image_tag(menu, class: "img-responsive thumb-img",
+          <%= link_to image_tag(menu, class: "img-responsive thumb-img rounded mb-1",
                                 data: { toggle: "modal",
                                 target: "#myModal2" }),
                                 "#myGallery2",
@@ -190,7 +190,7 @@
         <% end %>
       <% end %>
 
-      <h2 class="mt-6 mb-2" style="font-size:1.1em;">COMENTÁRIOS</h2>
+      <h2 class="mt-3 mb-2" style="font-size:1.1em;">COMENTÁRIOS</h2>
       <% if user_signed_in? && current_user.admin? %>
         <h3 class="mr-1" style="font-size:1em; float:right;"><%= @restaurant.comments.count %> comentário(s)</h3>
         <br><hr>
@@ -227,7 +227,7 @@
 
 <div class="container mb-4">
   <div class="col-sm-5">
-    <% if user_signed_in? %>
+    <% if user_signed_in? && current_user.admin? %>
       <%= link_to 'Editar', edit_restaurant_path(@restaurant), class:"btn btn-warning" %>
     <% end %>
     <%= link_to 'Voltar', root_path, class:"btn btn-secondary" %>
@@ -249,8 +249,8 @@
               <% if index == 0 %>
                 <div class="carousel-item active">
                   <%= image_tag(picture, class: "img-responsive") %>
-                  <% if user_signed_in? %>
-                    <%= link_to delete_image_attachment_restaurant_url(picture), method: :delete, class: "btn btn-default", style:"margin-left:200px;" do %>
+                  <% if user_signed_in? && current_user.admin? %>
+                    <%= link_to delete_image_attachment_restaurant_url(picture), method: :delete, class: "btn btn-default", style:"margin-left:380px;" do %>
                       <i class="material-icons" style="color: #f00">clear</i>
                     <% end %>
                   <% end %>
@@ -258,8 +258,8 @@
               <% else %>
                 <div class="carousel-item">
                   <%= image_tag(picture, class: "img-responsive") %>
-                  <% if user_signed_in? %>
-                    <%= link_to delete_image_attachment_restaurant_url(picture), method: :delete, class: "btn btn-default", style:"margin-left:200px;" do %>
+                  <% if user_signed_in? && current_user.admin? %>
+                    <%= link_to delete_image_attachment_restaurant_url(picture), method: :delete, class: "btn btn-default", style:"margin-left:380px;" do %>
                       <i class="material-icons" style="color: #f00">clear</i>
                     <% end %>
                   <% end %>
@@ -294,8 +294,8 @@
               <% if index == 0 %>
                 <div class="carousel-item active">
                   <%= image_tag(menu, class: "img-responsive") %>
-                  <% if user_signed_in? %>
-                    <%= link_to delete_image_attachment_restaurant_url(menu), method: :delete, class: "btn btn-default", style:"margin-left:200px;" do %>
+                  <% if user_signed_in? && current_user.admin? %>
+                    <%= link_to delete_image_attachment_restaurant_url(menu), method: :delete, class: "btn btn-default", style:"margin-left:380px;" do %>
                       <i class="material-icons" style="color: #f00">clear</i>
                     <% end %>
                   <% end %>
@@ -303,14 +303,9 @@
               <% else %>
                 <div class="carousel-item">
                   <%= image_tag(menu, class: "img-responsive") %>
-                  <% if user_signed_in? %>
-                    <%= link_to root_path, class: "btn btn-default", style:"margin-left:200px;" do %>
+                  <% if user_signed_in? && current_user.admin? %>
+                    <%= link_to delete_image_attachment_restaurant_url(menu), method: :delete, class: "btn btn-default", style:"margin-left:380px;" do %>
                       <i class="material-icons" style="color: #f00">clear</i>
-                      <% if user_signed_in? %>
-                        <%= link_to delete_image_attachment_restaurant_url(menu), method: :delete, class: "btn btn-default", style:"margin-left:200px;" do %>
-                          <i class="material-icons" style="color: #f00">clear</i>
-                        <% end %>
-                      <% end %>
                     <% end %>
                   <% end %>
                 </div>

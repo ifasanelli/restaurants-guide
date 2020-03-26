@@ -1,7 +1,12 @@
 <% if user_signed_in? && current_user.admin? %>
   <p>
-    <%= comment.body %> <br>
-    <%= time_ago_in_words(comment.created_at) %> <br>
+    <strong style='font-size:1.1em; color:#404040;'><%= comment.user.name if comment.user %></strong> <br>
+    <span style='font-size:1em;'>
+      <%= comment.body %>
+    </span><br>
+    <span style='font-size:0.8em; color:#404040;'>
+      <%= time_ago_in_words(comment.created_at) %>
+    </span><br>
     <% if comment.pendent? %>
       <div class="row mx-3">
         <div class="text-center col-md-6">
@@ -24,8 +29,11 @@
 <% else %>
   <% if comment.approved? %>
     <p>
+      <strong><%= comment.user.name if comment.user %></strong> <br>
       <%= comment.body %> <br>
-      <%= time_ago_in_words(comment.created_at) %> <br><hr>
+      <span style='font-size:0.8em; color:#404040;'>
+        <%= time_ago_in_words(comment.created_at) %>
+      </span><br>
     </p>
   <% end %>
 <% end %>
