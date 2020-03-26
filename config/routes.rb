@@ -5,6 +5,9 @@ Rails.application.routes.draw do
   get 'search', to: 'home#search'
   resources :cuisines, only: %i[index show edit update new create]
   resources :restaurants do
+    resources :comments do
+      put :approve_comment
+    end
     member do
       delete :delete_image_attachment
     end

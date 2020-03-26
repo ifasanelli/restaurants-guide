@@ -1,0 +1,31 @@
+<% if user_signed_in? && current_user.admin? %>
+  <p>
+    <%= comment.body %> <br>
+    <%= time_ago_in_words(comment.created_at) %> <br>
+    <% if comment.pendent? %>
+      <div class="row mx-3">
+        <div class="text-center col-md-6">
+          <%= form_tag restaurant_comment_approve_comment_path(comment.restaurant, comment), method: :put do %>
+            <%= hidden_field_tag :status, :approved %>
+            <%= button_tag(type: "submit", class: "btn btn-default") do %>
+              <i class="material-icons" style="color: #008000">done</i>
+            <% end %>
+          <% end %>
+        </div>
+        <div class="text-center col-md-6">
+          <%= link_to [comment.restaurant, comment], method: :delete, data: { confirm: 'Quer apagar este comentário?' } do %>
+            <i class="material-icons" style="color: #f00">clear</i>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+    <hr>
+  </p>
+<% else %>
+  <% if comment.approved? %>
+    <p>
+      <%= comment.body %> <br>
+      <%= time_ago_in_words(comment.created_at) %> <br><hr>
+    </p>
+  <% end %>
+<% end %>

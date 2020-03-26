@@ -2,6 +2,7 @@ class Restaurant < ApplicationRecord
   belongs_to :cuisine
   has_many_attached :pictures
   has_many_attached :menus
+  has_many :comments
   enum status: { available: 0, unavailable: 1 }
   validates :name, presence: { message: 'Nome não pode ficar em branco' }
   validates :address, presence: { message: 'Endereço não pode ficar em branco' }

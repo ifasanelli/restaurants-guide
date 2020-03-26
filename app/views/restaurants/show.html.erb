@@ -190,7 +190,27 @@
         <% end %>
       <% end %>
 
-      <h2 class="mt-3 mb-1" style="font-size:1.1em;">COMENTÁRIOS</h2>
+      <h2 class="mt-3 mb-2" style="font-size:1.1em;">COMENTÁRIOS</h2>
+      <% if user_signed_in? && current_user.admin? %>
+        <h3 class="mr-1" style="font-size:1em; float:right;"><%= @restaurant.comments.count %> comentário(s)</h3>
+        <br><hr>
+      <% else  %>
+        <h3 class="mr-1" style="font-size:1em; float:right;"><%= @restaurant.comments.approved.count %> comentário(s)</h3>
+        <br><hr>
+      <% end %>
+      <%= render @restaurant.comments %>
+      <!-- Comments form -->
+      <h3 class="mb-2" style="font-size:1em;">Fale sobre o <%= @restaurant.name %>:</h3>
+      <% if user_signed_in? %>
+        <%= render 'comments/form' %>
+      <% else %>
+        <h3 class="text-center" style="font-size:1.2em;">
+          <p class="mt-3 mb-2">
+            Faça login para fazer sua avaliação
+          </p>
+          <%= link_to 'Entrar', new_user_session_path, class:'btn btn-danger' %>
+        </h3>
+      <% end %> <!-- End of comments form -->
 
     </div>
     <!-- ADS -->
