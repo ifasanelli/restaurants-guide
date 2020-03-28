@@ -6,9 +6,29 @@
   </div>
 <% end %>
 
-<div class="container my-5 mx-5">
-  <h1 style="font-size:2.5em;"><%= @restaurant.name %></h1>
+<div class="container mb-5 mt-0 mx-5">
+  <div class="row row-cols-1">
+    <div class="col-12">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb pl-0" style="background-color: #fff;">
+          <li class="breadcrumb-item">Início</li>
+          <li class="breadcrumb-item"><%= @restaurant.cuisine.name %></li>
+          <li class="breadcrumb-item active"><%= @restaurant.name %></li>
+        </ol>
+      </nav>
+    </div>
+  </div>
+  <div class="row row-cols-3 mt-3">
+    <div class="col-6">
+      <h1 style="font-size:2.5em;"><%= @restaurant.name %></h1>
+    </div>
+    <div class="col-3">
+      
+    </div>
+  </div>
 </div>
+
+
 
 <div class="container mb-4 mx-5">
   <div class="row row-cols-3">
