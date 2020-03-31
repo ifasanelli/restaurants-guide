@@ -80,3 +80,23 @@
 .custom-range::-ms-thumb:active {
   background: rgb(255, 0, 0);
 }
+
+.rating {
+  margin: auto 0;
+}
+
+.rating_star{
+  background: url('empty-star.png') no-repeat center center;
+  width: 16px;
+  height: 16px;
+  display: block;
+  float: left;
+}
+
+.on{
+  background: url('star.png') no-repeat center center;
+}
+
+.onH{
+  background: url('star.png') no-repeat center center;
+}

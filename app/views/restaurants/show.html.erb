@@ -23,11 +23,82 @@
       <h1 style="font-size:2.5em;"><%= @restaurant.name %></h1>
     </div>
     <div class="col-3">
-      
+      <div class="row">
+        <h3 style="font-size:1em;">Avalie:</h3>
+      </div>
+      <div class="row">
+        <ul class="rating pl-0">
+          <% form_id = "restaurant_#{@restaurant.id}_rating"  %>
+          <%= form_for([@restaurant,@restaurant.ratings.last || @restaurant.ratings.build], :html => {:id => "restaurant_#{@restaurant.id}_rating", :class => "star_rating_form"}) do |f| %>
+            <%= f.hidden_field :restaurant_id %>
+            <%= f.hidden_field :star, :id => "#{form_id}_stars" %>
+          <% end %>
+          <% (1..5).each do |i| %>
+            <li class="rating_star mx-1 pb-4 pt-1" data-stars="<%= i %>" data-form-id="<%= form_id %>" id="<%= "#{form_id}_#{i}" %>"></li>
+          <% end %>
+        </ul>
+      </div>
     </div>
   </div>
 </div>
 
+<script>
+  var set_stars = function(form_id, stars){
+      for(i=1; i<=5; i++){
+        if(i <= stars){
+          $('#' + form_id + '_' + i).addClass('on');
+        } else {
+          $('#' + form_id + '_' + i).removeClass('on');
+        }
+      }
+    }
+  $(function() {
+    $('.rating_star').click(function() {
+      var star = $(this);
+      var form_id = $(this).attr('data-form-id');
+      var stars = $(this).attr('data-stars');
+
+      set_stars(form_id, stars);
+
+      $('#' + form_id + '_stars').val(stars);
+
+      $.ajax({
+        type: "post",
+        url: $('#' + form_id).attr('action'),
+        data: $('#' + form_id).serialize()
+      });
+    });
+
+    $('.rating_star').hover(function() {
+      var star = $(this);
+      var form_id = $(this).attr('data-form-id');
+      var stars = $(this).attr('data-stars');
+
+      for(i=1; i<=5; i++){
+        if(i <= stars){
+          $('#' + form_id + '_' + i).addClass('onH');
+        } else {
+          $('#' + form_id + '_' + i).removeClass('onH');
+        }
+      }
+    }, function(){
+      var star = $(this);
+      var form_id = $(this).attr('data-form-id');
+      var stars = $(this).attr('data-stars');
+
+      for(i=1; i<=5; i++){
+        $('#' + form_id + '_' + i).removeClass('onH');
+      }
+    }
+    );
+  });
+
+  $('.star_rating_form').each(function(){
+    var form_id = $(this).attr('id');
+    var stars = $('#' + form_id + '_stars').val();
+    set_stars(form_id, stars)
+  });
+</script>
 
 
 <div class="container mb-4 mx-5">
