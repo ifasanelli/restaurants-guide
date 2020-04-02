@@ -27,16 +27,20 @@
         <h3 style="font-size:1em;">Avalie:</h3>
       </div>
       <div class="row">
-        <ul class="rating pl-0">
-          <% form_id = "restaurant_#{@restaurant.id}_rating"  %>
-          <%= form_for([@restaurant,@restaurant.ratings.last || @restaurant.ratings.build], :html => {:id => "restaurant_#{@restaurant.id}_rating", :class => "star_rating_form"}) do |f| %>
-            <%= f.hidden_field :restaurant_id %>
-            <%= f.hidden_field :star, :id => "#{form_id}_stars" %>
-          <% end %>
-          <% (1..5).each do |i| %>
-            <li class="rating_star mx-1 pb-4 pt-1" data-stars="<%= i %>" data-form-id="<%= form_id %>" id="<%= "#{form_id}_#{i}" %>"></li>
-          <% end %>
-        </ul>
+        <% if user_signed_in? %>
+          <ul class="rating pl-0">
+            <% form_id = "restaurant_#{@restaurant.id}_rating"  %>
+            <%= form_for([@restaurant, @restaurant.ratings.find_by(user: current_user) || @restaurant.ratings.build], :html => {:id => "restaurant_#{@restaurant.id}_rating", :class => "star_rating_form"}) do |f| %>
+              <%= f.hidden_field :restaurant_id %>
+              <%= f.hidden_field :star, :id => "#{form_id}_stars" %>
+            <% end %>
+            <% (1..5).each do |i| %>
+              <li class="rating_star mx-1 pb-4 pt-1" data-stars="<%= i %>" data-form-id="<%= form_id %>" id="<%= "#{form_id}_#{i}" %>"></li>
+            <% end %>
+          </ul>
+        <% else %>
+          <%= link_to 'Entrar', new_user_session_path, class:'btn btn-danger btn-sm' %>
+        <% end %>
       </div>
     </div>
   </div>
@@ -93,11 +97,13 @@
     );
   });
 
-  $('.star_rating_form').each(function(){
-    var form_id = $(this).attr('id');
-    var stars = $('#' + form_id + '_stars').val();
-    set_stars(form_id, stars)
-  });
+  <% if user_signed_in? %>
+    $('.star_rating_form').each(function(){
+      var form_id = $(this).attr('id');
+      var stars = $('#' + form_id + '_stars').val();
+      set_stars(form_id, stars)
+    });
+  <% end %>
 </script>
 
 
@@ -255,7 +261,7 @@
       <% end %>
     </div>
     <!-- FOTOS, CARDÁPIOS & COMENTÁRIOS -->
-    <div class="col-6 grid-divider">
+    <div class="col-7 grid-divider">
       <h2 class="mb-2" style="font-size:1.1em;">FOTOS</h2>
 
       <% if @restaurant.pictures.attached? %>
@@ -305,11 +311,11 @@
 
     </div>
     <!-- ADS -->
-    <div class="col-3">
-      <h2 class="mb-3 pl-5" style="font-size:1.1em;">Patrocinados</h2>
+    <div class="col-2">
+      <h2 class="mb-3 pl-3" style="font-size:1.1em;">Patrocinados</h2>
       <% @ads.each do |ad|  %>
         <% if ad.mini_ad.attached? %>
-          <td><%= link_to( image_tag(ad.mini_ad, class:"pict-format"), restaurant_path(ad.restaurant.id), class:'pl-5') %></td>
+          <td><%= link_to( image_tag(ad.mini_ad, class:"pict-format rounded"), restaurant_path(ad.restaurant.id), class:'pl-3') %></td>
         <% end %>
       <% end %>
     </div>

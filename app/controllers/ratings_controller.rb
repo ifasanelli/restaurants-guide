@@ -1,8 +1,20 @@
 class RatingsController < ApplicationController
   def create
     @restaurant = Restaurant.find(params[:restaurant_id])
-    @comment = @restaurant.ratings.create(params[:rating].permit(:star))
-    flash[:alert] = 'Obrigado pelo seu voto!'
+    @rating = @restaurant.ratings.create(params[:rating].permit(:star))
+    @rating.user = current_user
+    @rating.save
+    flash[:notice] = 'Obrigado pelo seu voto!'
     redirect_to restaurant_path(@restaurant)
+  end
+
+  def update
+    @restaurant = Restaurant.find(params[:restaurant_id])
+    if @rating = @restaurant.ratings.update(params[:rating].permit(:star))
+      flash[:notice] = 'Voto atualizado com sucesso!'
+      redirect_to restaurant_path(@restaurant)
+    else
+      redirect_to restaurant_path(@restaurant)
+    end
   end
 end

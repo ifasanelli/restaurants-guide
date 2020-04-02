@@ -5,4 +5,5 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   enum role: { visitor: 0, admin: 1 }
   has_many :comments
+  has_many :ratings
 end
