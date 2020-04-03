@@ -24,7 +24,7 @@
     </div>
     <div class="col-3">
       <div class="row">
-        <h3 style="font-size:1em;">Avalie:</h3>
+        <h3 class="mb-1" style="font-size:1em;">Avalie:</h3>
       </div>
       <div class="row">
         <% if user_signed_in? %>
@@ -39,13 +39,26 @@
             <% end %>
           </ul>
         <% else %>
-          <%= link_to 'Entrar', new_user_session_path, class:'btn btn-danger btn-sm' %>
+          <h3 class="text-center py-2 px-2" style="font-size:0.7em; background-color: #f8f9fa; border-radius: 5px;">
+            <p class="mb-2">
+              Faça login para votar
+            </p>
+            <%= link_to 'Entrar', new_user_session_path, class:'btn btn-danger btn-sm py-0' %>
+          </h3>
         <% end %>
       </div>
     </div>
+    <div class="col-3">
+      <h2 class="mt-2 nota" style="font-size:1.7em;">
+        <span class="cl1"><%= @restaurant.avg_note %></span><span class="cl2">/5</span>
+        <p class="px-1" style="font-size:0.5em;">
+          <%= @restaurant.ratings.count %> voto(s)
+        </p>
+      </h2>
+    </div>
   </div>
 </div>
-
+<!-- $('#' + form_id + '_' + i).removeClass('onH'); -->
 <script>
   var set_stars = function(form_id, stars){
       for(i=1; i<=5; i++){
@@ -57,6 +70,21 @@
       }
     }
   $(function() {
+    var avg_note = $('.nota .cl1').text();
+    if(avg_note >= 4){
+      $('.cl1').addClass('green1');
+      $('.cl2').addClass('green2');
+    } else if(avg_note < 4 && avg_note >= 2.5){
+      $('.cl1').addClass('yellow1');
+      $('.cl2').addClass('yellow2');
+    } else if(avg_note < 2.5 && avg_note >= 0.5){
+      $('.cl1').addClass('red1');
+      $('.cl2').addClass('red2');
+    }else{
+      $('.cl1').addClass('no1');
+      $('.cl2').addClass('no2');
+    }
+
     $('.rating_star').click(function() {
       var star = $(this);
       var form_id = $(this).attr('data-form-id');

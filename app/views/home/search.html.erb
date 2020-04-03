@@ -7,17 +7,46 @@
     <div class="col-9">
 
         <% @places.each do |restaurant|  %>
-          <div class="card mb-2 " style="width: 80%;">
-            <div class="card-body">
-              <h5 class="card-title">
-                <%= link_to restaurant.name, restaurant_path(restaurant), class:"search-link" %>
-              </h5>
-              <h6 class="card-subtitle mb-2 text-muted">
-                <%= restaurant.cuisine.name %>
-              </h6>
-              <p class="card-text">
-                <%= restaurant.address %> <%= restaurant.neighborhood %> <%= restaurant.city %>
-              </p>
+          <div class="card mb-2 rounded" style="width: 80%;">
+            <div class="row row-cols-2">
+              <div class="col-9">
+                <div class="card-body">
+                  <h5 class="card-title">
+                    <%= link_to restaurant.name, restaurant_path(restaurant), class:"search-link" %>
+                  </h5>
+                  <h6 class="card-subtitle mb-2 text-muted">
+                    <%= restaurant.cuisine.name %>
+                  </h6>
+                  <p class="card-text">
+                    <%= restaurant.address %> <%= restaurant.neighborhood %> <%= restaurant.city %>
+                  </p>
+                </div>
+              </div>
+              <div class="col-3 mt-3">
+                <h2 class="mt-2" style="font-size:1.7em;">
+                  <% if(restaurant.avg_note.to_f >= 4) %>
+                    <% @class1 = 'green1' %>
+                    <% @class2 = 'green2' %>
+                  <% else %>
+                    <% if(restaurant.avg_note.to_f < 4 && restaurant.avg_note.to_f >= 2.5)  %>
+                      <% @class1 = 'yellow1' %>
+                      <% @class2 = 'yellow2' %>
+                    <% else %>
+                      <% if(restaurant.avg_note.to_f < 2.5 && restaurant.avg_note.to_f >= 0.5)  %>
+                        <% @class1 = 'red1' %>
+                        <% @class2 = 'red2' %>
+                      <% else %>
+                        <% @class1 = 'no1' %>
+                        <% @class2 = 'no2' %>
+                      <% end %>
+                    <% end %>
+                  <% end %>
+                  <span class="<%= @class1 %>"><%= restaurant.avg_note %></span><span class="<%= @class2 %>">/5</span>
+                  <p class="px-1" style="font-size:0.5em;">
+                    <%= restaurant.ratings.count %> voto(s)
+                  </p>
+                </h2>
+              </div>
             </div>
           </div>
         <% end %>
@@ -26,7 +55,7 @@
     <div class="col-3">
        <% @ads.each do |ad|  %>
         <% if ad.mini_ad.attached? %>
-          <td><%= link_to( image_tag(ad.mini_ad, class:"pict-format"), restaurant_path(ad.restaurant.id)) %></td>
+          <td><%= link_to( image_tag(ad.mini_ad, class:"pict-format rounded"), restaurant_path(ad.restaurant.id)) %></td>
         <% end %>
       <% end %>
     </div>

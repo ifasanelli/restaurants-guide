@@ -16,4 +16,18 @@ class Restaurant < ApplicationRecord
   validates :timmings, presence: { message: 'Horário não pode ficar em branco' }
   validates :map, presence: { message: 'URL do mapa não pode '\
                                             'ficar em branco' }
+
+  def avg_note
+    array = []
+    ratings.each do |rating|
+      array << rating.star
+    end
+    if array.any?
+      sum = array.reduce(0) { |sum, num| sum + num }
+      result = sum.to_f / ratings.count.to_f
+      "#{result.to_f}"
+    else
+      'Avalie!'
+    end
+  end
 end
