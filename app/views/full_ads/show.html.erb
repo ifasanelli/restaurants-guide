@@ -1,0 +1,26 @@
+<div class="container">
+  <h2>Anúncio Full Page</h2>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Nome</th>
+        <th scope="col">Restaurante</th>
+        <th scope="col">Imagem</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><%= @full_ad.name %></td>
+        <td><%= @full_ad.restaurant.name %></td>
+        <td><%= image_tag(@full_ad.fullpage_ad, id: @full_ad.name) %></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="col-sm-5">
+    <%= link_to 'Deletar', full_ad_path(@full_ad), method: :delete, class: "btn btn-danger", data: { confirm: 'Quer apagar este anúncio?' } %>
+    <%= link_to 'Voltar', full_ads_path, class:"btn btn-outline-dark" %>
+  </div>
+
+</div>

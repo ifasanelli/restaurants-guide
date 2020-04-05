@@ -27,7 +27,7 @@ class Restaurant < ApplicationRecord
       result = sum.to_f / ratings.count.to_f
       "#{result.to_f}"
     else
-      'Avalie!'
+      '- '
     end
   end
 end

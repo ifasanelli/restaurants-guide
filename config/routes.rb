@@ -14,4 +14,5 @@ Rails.application.routes.draw do
     resources :ratings
   end
   resources :ads, only: %i[index show new create destroy]
+  resources :full_ads, only: %i[index show new create destroy]
 end

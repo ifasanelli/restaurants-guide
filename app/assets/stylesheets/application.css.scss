@@ -134,5 +134,11 @@
 }
 
 .no2{
-  display: none;
+  color:#000;
+  font-size:0.7em;
+}
+
+.bread-item:hover{
+  color: rgb(220, 0, 0);
+  text-decoration: none;
 }

@@ -11,7 +11,7 @@
     <div class="col-12">
       <nav aria-label="breadcrumb">
         <ol class="breadcrumb pl-0" style="background-color: #fff;">
-          <li class="breadcrumb-item">Início</li>
+          <li class="breadcrumb-item"><%= link_to 'Início', root_path, class:'bread-item' %></li>
           <li class="breadcrumb-item"><%= @restaurant.cuisine.name %></li>
           <li class="breadcrumb-item active"><%= @restaurant.name %></li>
         </ol>
@@ -454,6 +454,7 @@
 <script>
   $('#myModal').modal('handleUpdate')
 </script>
+
 
 
 

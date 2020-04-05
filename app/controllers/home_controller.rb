@@ -1,6 +1,8 @@
 class HomeController < ApplicationController
   before_action :search_restaurant, only: %i[search]
-  def index; end
+  def index
+    @full_ads = FullAd.all
+  end
 
   def search
     @ads = Ad.all

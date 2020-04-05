@@ -1,0 +1,24 @@
+<div class="container">
+  <%= link_to 'Novo anúncio', new_full_ad_path, class:"btn btn-dark" %>
+
+  <h2>Anúncios Full Page</h2>
+  <table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">Nome</th>
+        <th scope="col">Restaurante</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @full_ads.each do |full_ad|  %>
+          <tr>
+              <td><%= link_to full_ad.name, full_ad_path(full_ad.id), class:"text-dark" %></td>
+              <td><%= link_to full_ad.restaurant.name, restaurant_path(full_ad.restaurant), class:"text-dark" %></td>
+          </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <div class="col-sm-5">
+    <%= link_to 'Voltar', root_path, class:"btn btn-outline-dark" %>
+  </div>
+</div>
