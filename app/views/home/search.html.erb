@@ -1,4 +1,4 @@
-<div class="container mb-4">
+<div class="container mb-4 mt-4">
   <h1 style="font-size: 2.5rem;">Resultados</h1>
 </div>
 
@@ -53,7 +53,8 @@
 
     </div>
     <div class="col-3">
-       <% @ads.each do |ad|  %>
+      <h2 class="mb-3 pl-3" style="font-size:1.1em;">Patrocinados</h2>
+      <% @ads.each do |ad|  %>
         <% if ad.mini_ad.attached? %>
           <td><%= link_to( image_tag(ad.mini_ad, class:"pict-format rounded"), restaurant_path(ad.restaurant.id)) %></td>
         <% end %>
@@ -62,7 +63,7 @@
   </div>
 </div>
 <div class=container>
-    <div class="col-sm-5 mt-3">
+    <div class="col-sm-5 mt-1">
       <%= link_to 'Voltar', root_path, class:"btn btn-secondary" %>
     </div><br><br>
 </div>
