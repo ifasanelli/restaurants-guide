@@ -1,7 +1,7 @@
 class AdsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_restaurants, only: %i[new create]
-  before_action :checkAdmin
+  before_action :check_admin
 
   def index
     @ads = Ad.all
@@ -41,11 +41,10 @@ class AdsController < ApplicationController
     @restaurants = Restaurant.all
   end
 
-  def admin?
-    current_user.admin == true
-  end
-
-  def checkAdmin
-    redirect_to new_user_session_path unless current_user && current_user.admin?
+  def check_admin
+    unless current_user && (current_user.admin? || current_user.superadmin?)
+      redirect_to new_user_session_path
+      flash[:alert] = "Você não tem permissão para esta página!"
+    end
   end
 end

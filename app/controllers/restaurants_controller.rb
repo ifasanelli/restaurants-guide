@@ -71,11 +71,7 @@ class RestaurantsController < ApplicationController
     @status = @restaurant.available? ? false : true
   end
 
-  def admin?
-    current_user.admin == true
-  end
-
   def checkAdmin
-    redirect_to new_user_session_path unless current_user && current_user.admin?
+    redirect_to new_user_session_path unless current_user && (current_user.admin? || current_user.superadmin?)
   end
 end

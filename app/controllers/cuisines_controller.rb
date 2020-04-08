@@ -1,6 +1,7 @@
 class CuisinesController < ApplicationController
   before_action :authenticate_user!
   before_action :find_cuisine, only: %i[show edit update]
+  before_action :check_admin
 
   def index
     @cuisines = Cuisine.all
@@ -41,5 +42,12 @@ class CuisinesController < ApplicationController
 
   def find_cuisine
     @cuisine = Cuisine.find(params[:id])
+  end
+
+  def check_admin
+    unless current_user && (current_user.admin? || current_user.superadmin?)
+      flash[:alert] = "Você não tem permissão para esta página!"
+      redirect_to new_user_session_path
+    end
   end
 end

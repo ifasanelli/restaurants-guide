@@ -22,7 +22,7 @@ class Restaurant < ApplicationRecord
     ratings.each do |rating|
       array << rating.star
     end
-    if array.any?
+    unless array.nil?
       sum = array.reduce(0) { |sum, num| sum + num }
       result = sum.to_f / ratings.count.to_f
       "#{result.to_f}"

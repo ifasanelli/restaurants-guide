@@ -1,4 +1,4 @@
-<% if user_signed_in? && current_user.admin? %>
+<% if user_signed_in? && (current_user.admin? || current_user.superadmin?) %>
   <p>
     <strong style='font-size:1.1em; color:#404040;'><%= comment.user.name if comment.user %></strong> <br>
     <span style='font-size:1em;'>

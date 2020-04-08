@@ -1,12 +1,12 @@
 <div class="container">
-  <h2>Editar perfil <%= resource_name.to_s.humanize %></h2>
+  <h2 class='mt-3'>Editar perfil <%= resource_name.to_s.humanize %></h2>
 
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
     <%= render "devise/shared/error_messages", resource: resource %>
 
     <div class="field">
       <%= f.label 'Nome' %><br />
-      <%= f.email_field :name, autofocus: true, autocomplete: "Nome" %>
+      <%= f.text_field :name, autofocus: true, autocomplete: "Nome" %>
     </div><br />
 
     <div class="field">
