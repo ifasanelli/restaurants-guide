@@ -1,41 +1,117 @@
 <div class="container">
-  <table class="table mt-5">
-    <thead>
-      <tr>
-        <th scope="col">Nome</th>
-        <th scope="col">Email</th>
-        <th scope="col">Avaliações</th>
-        <th scope="col">Notas</th>
-        <th scope="col">Admin</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @users.each do |user| %>
-        <tr>
-          <td><%= user.name %></td>
-          <td><%= user.email %></td>
-          <td><%= user.comments.count %></td>
-          <td><%= user.ratings.count %></td>
-          <td>
-            <% if user.role == 'visitor' %>
-              <%= form_tag user_set_admin_path(user.id), method: :put do %>
-                <%= hidden_field_tag :role, :admin %>
-                <%= button_tag(type: "submit", class: "btn btn-default") do %>
-                  <i class="material-icons" style="color: #008000">done</i>
-                <% end %>
-              <% end %>
+  <div class="mt-5 shadow rounded">
+    <div class="px-3 py-1">
+      <h2 class="px-3 py-3">Avaliações</h2>
+      <table class="table px-3 py-3">
+        <thead>
+          <tr>
+            <th scope="col">Total de avaliações</th>
+            <th scope="col">Avaliações pendentes</th>
+            <th scope="col">Avaliações aprovadas</th>
+            <th scope="col">Média de avaliações por restaurante</th>
+          </tr>
+        </thead>
+        <tbody>
+            <tr>
+              <td><%= @comments.count %></td>
+              <td><%= @comments.pendent.count %></td>
+              <td><%= @comments.approved.count %></td>
+              <td><%= @comments_per_restaurant.to_f.round(2) %></td>
+            </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="mt-5 shadow rounded">
+    <h2 class="px-3 py-3">Avaliações pendentes</h2>
+    <div class="table-wrapper-scroll-y my-custom-scrollbar px-3 pb-3 pt-0">
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Nome</th>
+            <th scope="col">Quantidade</th>
+          </tr>
+        </thead>
+        <tbody style='overflow: scroll;'>
+          <% @restaurants.each do |restaurant| %>
+            <% if restaurant.comments.pendent.count > 0 %>
+              <tr>
+                <td><%= link_to restaurant.name, restaurant %></td>
+                <td><%= restaurant.comments.pendent.count %></td>
+              </tr>
             <% end %>
-            <% if user.role == 'admin' %>
-              <%= form_tag user_set_visitor_path(user.id), method: :put do %>
-                <%= hidden_field_tag :role, :admin %>
-                <%= button_tag(type: "submit", class: "btn btn-default") do %>
-                  <i class="material-icons" style="color: #800000">clear</i>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="mt-5 shadow rounded">
+    <div class="px-3 py-1">
+      <h2 class="px-3 py-3">Notas</h2>
+      <table class="table px-3 py-3">
+        <thead>
+          <tr>
+            <th scope="col">Total de notas</th>
+            <th scope="col">Média de notas por restaurante</th>
+          </tr>
+        </thead>
+        <tbody>
+            <tr>
+              <td><%= @ratings.count %></td>
+              <td><%= @rating_per_restaurant.to_f.round(2) %></td>
+            </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="my-5 shadow rounded">
+    <h2 class="px-3 py-3">Usuários</h2>
+    <div class="table-wrapper-scroll-y my-custom-scrollbar px-3 pb-3 pt-0">
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Nome</th>
+            <th scope="col">Email</th>
+            <th scope="col">Avaliações</th>
+            <th scope="col">Notas</th>
+            <th scope="col">Admin</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @users.each do |user| %>
+            <tr>
+              <td><%= user.name %></td>
+              <td><%= user.email %></td>
+              <td><%= user.comments.count %></td>
+              <td><%= user.ratings.count %></td>
+              <td>
+                <% if user.role == 'visitor' %>
+                  <%= form_tag user_set_admin_path(user.id), method: :put do %>
+                    <%= hidden_field_tag :role, :admin %>
+                    <%= button_tag(type: "submit", class: "btn btn-default") do %>
+                      <i class="material-icons" style="color: #800000">clear</i>
+                    <% end %>
+                  <% end %>
                 <% end %>
-              <% end %>
-            <% end %>
-          </td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
+                <% if user.role == 'admin' %>
+                  <%= form_tag user_set_visitor_path(user.id), method: :put do %>
+                    <%= hidden_field_tag :role, :admin %>
+                    <%= button_tag(type: "submit", class: "btn btn-default") do %>
+                      <i class="material-icons" style="color: #008000">done</i>
+                    <% end %>
+                  <% end %>
+                <% end %>
+                <% if user.role == 'superadmin' %>
+                  <i class="material-icons" style="color: #000;padding-left:12px;">build</i>
+                <% end %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
 </div>

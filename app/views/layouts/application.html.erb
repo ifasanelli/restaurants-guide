@@ -38,7 +38,7 @@
                 <% if current_user.admin? || current_user.superadmin? %>
                   <div class="dropdown-divider"></div>
                   <% if current_user.superadmin? %>
-                    <%= link_to 'Usuários', users_path, class:'dropdown-item' %>
+                    <%= link_to 'Painel de controle', users_path, class:'dropdown-item' %>
                   <% end %>
                   <%= link_to 'Ads', ads_path, class:'dropdown-item' %>
                   <%= link_to 'Home page ads', full_ads_path, class:'dropdown-item' %>

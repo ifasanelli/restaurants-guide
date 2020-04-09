@@ -4,6 +4,11 @@ class UsersController < ApplicationController
 
   def index
     @users = User.all
+    @comments = Comment.all
+    @ratings = Rating.all
+    @restaurants = Restaurant.all
+    @rating_per_restaurant = @ratings.count.to_f / @restaurants.count.to_f
+    @comments_per_restaurant = @comments.count.to_f / @restaurants.count.to_f
   end
 
   def set_admin
