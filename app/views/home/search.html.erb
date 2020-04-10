@@ -23,29 +23,34 @@
               </div>
             </div>
             <div class="col-3 mt-3">
-              <h2 class="mt-2" style="font-size:1.7em;">
-                <% if(restaurant.avg_note.to_f >= 4) %>
-                  <% @class1 = 'green1' %>
-                  <% @class2 = 'green2' %>
-                <% else %>
-                  <% if(restaurant.avg_note.to_f < 4 && restaurant.avg_note.to_f >= 2.5)  %>
-                    <% @class1 = 'yellow1' %>
-                    <% @class2 = 'yellow2' %>
+              <div class="row mb-2">
+                <h2 class="mt-2" style="font-size:1.7em; margin: auto;">
+                  <% if(restaurant.avg_note.to_f >= 4) %>
+                    <% @class1 = 'green1' %>
+                    <% @class2 = 'green2' %>
                   <% else %>
-                    <% if(restaurant.avg_note.to_f < 2.5 && restaurant.avg_note.to_f >= 0.5)  %>
-                      <% @class1 = 'red1' %>
-                      <% @class2 = 'red2' %>
+                    <% if(restaurant.avg_note.to_f < 4 && restaurant.avg_note.to_f >= 2.5)  %>
+                      <% @class1 = 'yellow1' %>
+                      <% @class2 = 'yellow2' %>
                     <% else %>
-                      <% @class1 = 'no1' %>
-                      <% @class2 = 'no2' %>
+                      <% if(restaurant.avg_note.to_f < 2.5 && restaurant.avg_note.to_f >= 0.5)  %>
+                        <% @class1 = 'red1' %>
+                        <% @class2 = 'red2' %>
+                      <% else %>
+                        <% @class1 = 'no1' %>
+                        <% @class2 = 'no2' %>
+                      <% end %>
                     <% end %>
                   <% end %>
-                <% end %>
-                <span class="<%= @class1 %>"><%= restaurant.avg_note %></span><span class="<%= @class2 %>">/5</span>
-                <p class="px-1" style="font-size:0.5em;">
-                  <%= restaurant.ratings.count %> voto(s)
-                </p>
-              </h2>
+                  <span class="<%= @class1 %>"><%= restaurant.avg_note %></span><span class="<%= @class2 %>">/5</span>
+                  <p class="px-1 mb-0" style="font-size:0.5em;">
+                    <%= restaurant.ratings.count %> voto(s)
+                  </p>
+                </h2>
+              </div>
+              <div class="row">
+                <h3 style="font-size:0.9em; margin: auto;"><%= restaurant.comments.count %> comentário(s)</h3>
+              </div>
             </div>
           </div>
         </div>

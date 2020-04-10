@@ -12,6 +12,7 @@ class CommentsController < ApplicationController
     @restaurant = Restaurant.find(params[:restaurant_id])
     @comment = @restaurant.comments.find(params[:id])
     @comment.destroy
+    flash[:alert] = 'Comentário rejeitado com sucesso!'
     redirect_to restaurant_path(@restaurant)
   end
 
@@ -19,6 +20,7 @@ class CommentsController < ApplicationController
     @restaurant = Restaurant.find(params[:restaurant_id])
     @comment = @restaurant.comments.find(params[:comment_id])
     @comment.update_attributes(status: :approved)
+    flash[:notice] = 'Comentário aprovado com sucesso!'
     redirect_to restaurant_path(@restaurant)
   end
 end
