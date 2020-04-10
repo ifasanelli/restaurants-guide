@@ -55,6 +55,7 @@
           </div>
         </div>
       <% end %>
+      <%= will_paginate @places, renderer: @custom_renderer, :previous_label => 'Anterior', :next_label => 'Próxima' %>
     </div>
     <div class="col-3">
       <h2 class="mb-3 pl-3" style="font-size:1.1em;">Patrocinados</h2>

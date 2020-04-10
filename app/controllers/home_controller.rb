@@ -7,6 +7,11 @@ class HomeController < ApplicationController
   def search
     @ads = Ad.all
     @q = params[:q]
+    @custom_renderer = Class.new(WillPaginate::ActionView::LinkRenderer) do
+      def container_attributes
+        {class: "custom_pagination mt-5"}
+      end
+    end
   end
 
   private
@@ -20,5 +25,6 @@ class HomeController < ApplicationController
                         .where('address LIKE ?', "%#{params[:q]}%"))
                         .or(Restaurant.joins(:cuisine)
                         .where('neighborhood LIKE ?', "%#{params[:q]}%"))
+                        .paginate(page: params[:page], per_page: 1)
   end
 end
