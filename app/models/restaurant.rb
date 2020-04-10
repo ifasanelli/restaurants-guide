@@ -20,12 +20,14 @@ class Restaurant < ApplicationRecord
   def avg_note
     array = []
     ratings.each do |rating|
-      array << rating.star
+      unless rating.star.nil?
+        array << rating.star
+      end
     end
-    unless array.nil?
+    unless array.empty?
       sum = array.reduce(0) { |sum, num| sum + num }
       result = sum.to_f / ratings.count.to_f
-      "#{result.to_f}"
+      "#{result.to_f.round(1)}"
     else
       '-'
     end

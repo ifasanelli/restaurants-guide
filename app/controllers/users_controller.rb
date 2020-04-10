@@ -9,6 +9,8 @@ class UsersController < ApplicationController
     @restaurants = Restaurant.all
     @rating_per_restaurant = @ratings.count.to_f / @restaurants.count.to_f
     @comments_per_restaurant = @comments.count.to_f / @restaurants.count.to_f
+    @dataC = Comment.group(:status).count
+    @dataR = Rating.group(:star).count
   end
 
   def set_admin
