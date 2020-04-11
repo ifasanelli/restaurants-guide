@@ -187,3 +187,32 @@
   margin-right: 1em;}
 .custom_pagination .next_page {
   margin-left: 1em; }
+
+
+.spic {
+  position: relative;
+  text-align: center;
+  color: black;
+}
+
+.pic {
+  object-fit: cover;
+  opacity: 0.4;
+}
+
+.centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #222;
+}
+
+.cent {
+  font-size: 2em;
+  font-weight: 600;
+}
+
+.cent::before {
+  content: '+';
+}

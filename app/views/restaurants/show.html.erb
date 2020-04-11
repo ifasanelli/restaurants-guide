@@ -290,27 +290,61 @@
     <!-- FOTOS, CARDÁPIOS & COMENTÁRIOS -->
     <div class="col-7 grid-divider">
       <h2 class="mb-2" style="font-size:1.1em;">FOTOS</h2>
-
       <% if @restaurant.pictures.attached? %>
-        <% @restaurant.pictures.each_with_index do |picture, index| %>
-          <%= link_to image_tag(picture, class: "img-responsive thumb-img rounded mb-1",
-                                data: { toggle: "modal",
-                                target: "#myModal" }),
-                                "#myGallery",
-                                data: { slide_to: index } %>
+        <% @restaurant.pictures.limit(6).each_with_index do |picture, index| %>
+          <% if index == 5 %>
+            <span class="spic">
+              <%= link_to image_tag(picture, class: "img-responsive thumb-img rounded mb-1 pic",
+                                    data: { toggle: "modal",
+                                    target: "#myModal" }),
+                                    "#myGallery",
+                                    data: { slide_to: index } %>
+              <span class="centered">
+                <%= link_to button_tag(@restaurant.pictures.count - 5,
+                                  class: "btn btn-default cent",
+                                  data: { toggle: "modal",
+                                  target: "#myModal" }),
+                                  "#myGallery",
+                                  data: { slide_to: index } %>
+              </span>
+            </span>
+          <% else %>
+            <%= link_to image_tag(picture, class: "img-responsive thumb-img rounded mb-1",
+                                  data: { toggle: "modal",
+                                  target: "#myModal" }),
+                                  "#myGallery",
+                                  data: { slide_to: index } %>
+          <% end %>
         <% end %>
       <% end %>
 
 
       <h2 class="mt-3 mb-2" style="font-size:1.1em;">CARDÁPIO</h2>
-
       <% if @restaurant.menus.attached? %>
-        <% @restaurant.menus.each_with_index do |menu, index| %>
-          <%= link_to image_tag(menu, class: "img-responsive thumb-img rounded mb-1",
-                                data: { toggle: "modal",
-                                target: "#myModal2" }),
-                                "#myGallery2",
-                                data: { slide_to: index } %>
+        <% @restaurant.menus.limit(6).each_with_index do |menu, index| %>
+          <% if index == 5 %>
+            <span class="spic">
+              <%= link_to image_tag(menu, class: "img-responsive thumb-img rounded mb-1 pic",
+                                  data: { toggle: "modal",
+                                  target: "#myModal2" }),
+                                  "#myGallery2",
+                                  data: { slide_to: index } %>
+              <span class="centered">
+                <%= link_to button_tag(@restaurant.menus.count - 5,
+                                  class: "btn btn-default cent",
+                                  data: { toggle: "modal",
+                                  target: "#myModal2" }),
+                                  "#myGallery2",
+                                  data: { slide_to: index } %>
+              </span>
+            </span>
+          <% else %>
+            <%= link_to image_tag(menu, class: "img-responsive thumb-img rounded mb-1",
+                                  data: { toggle: "modal",
+                                  target: "#myModal2" }),
+                                  "#myGallery2",
+                                  data: { slide_to: index } %>
+          <% end %>
         <% end %>
       <% end %>
 
