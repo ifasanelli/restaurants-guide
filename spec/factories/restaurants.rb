@@ -7,7 +7,7 @@ FactoryBot.define do
     status { 0 }
     phone { '13 98765-1234' }
     phone2 { '13 91234-9876' }
-    cost { '50.00' }
+    cost { 50.99 }
     timmings { 'Seg-Qui 10h ás 18h, Sáb-Dom 12h ás 0h' }
     happy_hour { 'Qui-Sex 18h ás 20h' }
     coffee { true }

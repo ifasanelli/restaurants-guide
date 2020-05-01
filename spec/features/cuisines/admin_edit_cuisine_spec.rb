@@ -5,7 +5,7 @@ feature 'Admin edit a cuisine' do
     create(:cuisine)
     create(:cuisine, name: 'Japonesa')
     create(:cuisine, name: 'Mexicana')
-    user = create(:user)
+    user = create(:user, role: 2)
     login_as(user, scope: :user)
 
     visit cuisines_path
@@ -20,7 +20,7 @@ feature 'Admin edit a cuisine' do
   end
   scenario 'and validates empty fields' do
     create(:cuisine)
-    user = create(:user)
+    user = create(:user, role: 2)
     login_as(user, scope: :user)
 
     visit cuisines_path

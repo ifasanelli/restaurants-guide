@@ -3,7 +3,7 @@ require 'rails_helper'
 feature 'Admin edit a restaurant' do
   scenario 'successfully' do
     create(:restaurant)
-    user = create(:user)
+    user = create(:user, role: 2)
     login_as(user, scope: :user)
 
     visit restaurants_path
@@ -18,7 +18,7 @@ feature 'Admin edit a restaurant' do
   end
   scenario 'and validates empty fields' do
     create(:restaurant)
-    user = create(:user)
+    user = create(:user, role: 2)
     login_as(user, scope: :user)
 
     visit restaurants_path

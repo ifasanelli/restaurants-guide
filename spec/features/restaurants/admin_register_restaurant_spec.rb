@@ -3,7 +3,7 @@ require 'rails_helper'
 feature 'Admin register a restaurant' do
   scenario 'successfully' do
     create(:cuisine)
-    user = create(:user)
+    user = create(:user, role: 2)
     login_as(user, scope: :user)
 
     visit restaurants_path
@@ -30,7 +30,7 @@ feature 'Admin register a restaurant' do
   end
   scenario 'validates empty fields' do
     create(:cuisine, name: 'Brasileira')
-    user = create(:user)
+    user = create(:user, role: 2)
     login_as(user, scope: :user)
 
     visit restaurants_path
