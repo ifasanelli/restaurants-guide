@@ -1,37 +1,36 @@
-<div class="container">
-  <h2>Cadastre-se</h2>
+<div class="row justify-content-center mx-0 my-0">
+  <div class="col-2 mt-5 text-nowrap">
+    <h2 class="mb-4">Cadastre-se</h2>
 
-  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-    <%= render "devise/shared/error_messages", resource: resource %>
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+      <%= render "devise/shared/error_messages", resource: resource %>
 
-    <div class="field">
-      <%= f.label 'Nome' %><br />
-      <%= f.text_field :name, autofocus: true, autocomplete: "Nome" %>
-    </div><br />
+      <div class="field">
+        <%= f.label 'Nome' %><br />
+        <%= f.text_field :name, autofocus: true, autocomplete: "Nome", id:'usr_name' %>
+      </div><br />
 
-    <div class="field">
-      <%= f.label 'E-mail' %><br />
-      <%= f.email_field :email, autocomplete: "E-mail" %>
-    </div><br />
+      <div class="field">
+        <%= f.label 'E-mail' %><br />
+        <%= f.email_field :email, autocomplete: "E-mail", id:'usr_email' %>
+      </div><br />
 
-    <div class="field">
-      <%= f.label 'Senha' %>
-      <% if @minimum_password_length %>
-      <em>(<%= @minimum_password_length %> mínimo de caracteres)</em>
-      <% end %><br />
-      <%= f.password_field :password, autocomplete: "Nova Senha" %>
-    </div><br />
+      <div class="field">
+        <%= f.label 'Senha' %>
+        <% if @minimum_password_length %>
+        <em>(<%= @minimum_password_length %> mínimo de caracteres)</em>
+        <% end %><br />
+        <%= f.password_field :password, autocomplete: "Nova Senha", id:'usr_password' %>
+      </div><br />
 
-    <div class="field">
-      <%= f.label 'Confirmar senha' %><br />
-      <%= f.password_field :password_confirmation, autocomplete: "Nova Senha" %>
-    </div><br />
+      <div class="field">
+        <%= f.label 'Confirmar senha' %><br />
+        <%= f.password_field :password_confirmation, autocomplete: "Nova Senha", id:'usr_passwordr' %>
+      </div><br />
 
-    <div class="actions">
-      <%= f.submit "Cadastrar", class:"btn btn-success" %>
-    </div><br />
-  <% end %>
-
-  <%= render "devise/shared/links" %>
-
+      <div class="actions">
+        <%= f.submit "Cadastrar", class:"btn btn-success" %>
+      </div><br />
+    <% end %>
+  </div>
 </div>

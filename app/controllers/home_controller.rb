@@ -4,12 +4,16 @@ class HomeController < ApplicationController
     @full_ads = FullAd.all
   end
 
+  def sobre; end
+
+  def contato; end
+
   def search
     @ads = Ad.all
     @q = params[:q]
     @custom_renderer = Class.new(WillPaginate::ActionView::LinkRenderer) do
       def container_attributes
-        {class: "custom_pagination mt-5"}
+        {class: 'custom_pagination mt-5'}
       end
     end
   end
@@ -18,13 +22,13 @@ class HomeController < ApplicationController
 
   def search_restaurant
     @places = Restaurant.joins(:cuisine)
-                        .where('cuisines.name LIKE ?', "%#{params[:q]}%")
+                        .where('cuisines.name ILIKE ?', "%#{params[:q]}%")
                         .or(Restaurant.joins(:cuisine)
-                        .where('restaurants.name LIKE ?', "%#{params[:q]}%"))
+                        .where('restaurants.name ILIKE ?', "%#{params[:q]}%"))
                         .or(Restaurant.joins(:cuisine)
-                        .where('address LIKE ?', "%#{params[:q]}%"))
+                        .where('address ILIKE ?', "%#{params[:q]}%"))
                         .or(Restaurant.joins(:cuisine)
-                        .where('neighborhood LIKE ?', "%#{params[:q]}%"))
-                        .paginate(page: params[:page], per_page: 1)
+                        .where('neighborhood ILIKE ?', "%#{params[:q]}%"))
+                        .paginate(page: params[:page], per_page: 5)
   end
 end

@@ -1,4 +1,5 @@
 <div class="container">
+  <h1 class="mt-5">Painel de Controle</h1>
   <div class="mt-5 shadow rounded">
     <div class="px-3 py-1">
       <h2 class="px-5 py-4">Avaliações</h2>
@@ -97,7 +98,7 @@
                 <% if user.role == 'visitor' %>
                   <%= form_tag user_set_admin_path(user.id), method: :put do %>
                     <%= hidden_field_tag :role, :admin %>
-                    <%= button_tag(type: "submit", class: "btn btn-default") do %>
+                    <%= button_tag(type: "submit", class: "btn btn-default", id: "set-adm") do %>
                       <i class="material-icons" style="color: #800000">clear</i>
                     <% end %>
                   <% end %>

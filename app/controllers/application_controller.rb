@@ -24,12 +24,4 @@ class ApplicationController < ActionController::Base
         devise_parameter_sanitizer.permit(:account_update, keys: [:name, :email, :password, :current_password, :role])
     end
 
-  private
-    def admin?
-      current_user.admin == true
-    end
-
-    def superadmin?
-      current_user.superadmin == true
-    end
 end

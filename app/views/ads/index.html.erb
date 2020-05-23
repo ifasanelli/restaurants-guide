@@ -1,7 +1,5 @@
 <div class="container">
-  <%= link_to 'Novo anúncio', new_ad_path, class:"btn btn-dark" %>
-
-  <h2>Anúncios</h2>
+  <h1 class="mt-5 mb-4">Anúncios laterais</h1>
   <table class="table">
     <thead class="thead-dark">
       <tr>
@@ -18,7 +16,8 @@
       <% end %>
     </tbody>
   </table>
-  <div class="col-sm-5">
+  <div class="col-sm-5 mt-4">
+  <%= link_to 'Novo anúncio', new_ad_path, class:"btn btn-primary" %>
     <%= link_to 'Voltar', root_path, class:"btn btn-outline-dark" %>
   </div>
 </div>

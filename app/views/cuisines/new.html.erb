@@ -1,27 +1,28 @@
 <div class="container">
-  <h1>Nova Cozinha</h1>
+  <h1 class="mt-5 mb-4">Nova Cozinha</h1>
 
-<div>
-    <% if @cuisine.errors.any?%>
-        <p>Você deve corrigir os erros para continuar:</p>
-
-        <% @cuisine.errors.full_messages.each do |message|  %>
-            <p><%= message %></p>
-        <% end %>
-    <% end %>
-</div>
-
-<%= form_with model: @cuisine do |f| %>
-    <div>
-    <%= f.label :name, 'Nome:' %>
-    <%= f.text_field :name %>
-  </div>
   <div>
-    <div>
-        <%= f.submit 'Salvar' %>
-    </div>
-  </div>
-<% end %>
+      <% if @cuisine.errors.any?%>
+          <p>Você deve corrigir os erros para continuar:</p>
 
-<%= link_to 'Voltar', cuisines_path %>
+          <% @cuisine.errors.full_messages.each do |message|  %>
+              <p><%= message %></p>
+          <% end %>
+      <% end %>
+  </div>
+
+  <%= form_with model: @cuisine do |f| %>
+    <div class="form-group mb-4" >
+      <%= f.label :name, 'Nome:' %>
+      <%= f.text_field :name, class:"form-control" %>
+    </div>
+    <div>
+      <div class="form-group mb-4">
+          <%= f.submit 'Salvar', class:"btn btn-danger" %>
+      </div>
+    </div>
+  <% end %>
+  <div class="col-sm-5 px-0">
+    <%= link_to 'Voltar', cuisines_path, class:"mt-2 btn btn-outline-dark" %>
+  </div>
 </div>

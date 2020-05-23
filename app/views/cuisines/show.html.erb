@@ -1,5 +1,5 @@
 <div class="container">
-  <h1>Cozinha</h1><br><br>
+  <h1 class="mt-5 mb-4">Cozinha</h1>
 
   <table class="table">
     <thead>
@@ -12,10 +12,10 @@
         <td><%= @cuisine.name %></td>
       </tr>
     </tbody>
-  </table><br><br>
+  </table>
 
   <div class="col-sm-5">
     <%= link_to 'Editar', edit_cuisine_path(@cuisine), class:"btn btn-warning" %>
-    <%= link_to 'Voltar', cuisines_path, class:"btn btn-secondary" %>
+    <%= link_to 'Voltar', cuisines_path, class:"btn btn-outline-dark" %>
   </div>
 </div>

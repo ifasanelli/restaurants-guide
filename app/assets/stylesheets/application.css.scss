@@ -216,3 +216,16 @@
 .cent::before {
   content: '+';
 }
+
+.item-nav a {
+  text-decoration: none;
+  font-size: 1.1em;
+}
+
+.item-nav a:hover{
+  color: rgb(220, 0, 0);
+}
+
+.text-about{
+  font-size: 1.3em;
+}

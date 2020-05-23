@@ -18,4 +18,14 @@ feature 'Admin view ads and its details' do
     expect(page).to have_css('#Campanha-de-carnaval')
     expect(page).to have_content('Voltar')
   end
+
+  scenario 'validates visitor' do
+    user = create(:user, role: 0)
+    login_as(user, scope: :user)
+
+    visit ads_path
+
+    expect(current_path).to eq root_path
+  end
+
 end

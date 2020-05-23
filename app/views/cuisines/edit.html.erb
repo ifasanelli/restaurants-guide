@@ -1,5 +1,5 @@
 <div class="container">
-  <h1>Editar Cozinha</h1>
+  <h1 class="mt-5 mb-4">Editar Cozinha</h1>
 
   <div>
       <% if @cuisine.errors.any?%>
@@ -12,16 +12,16 @@
   </div>
 
   <%= form_with model: @cuisine do |f| %>
-      <div>
+    <div class="form-group mb-4">
       <%= f.label :name, 'Nome:' %>
-      <%= f.text_field :name %>
+      <%= f.text_field :name, class:"form-control" %>
     </div>
     <div>
-      <div>
-          <%= f.submit 'Salvar' %>
+      <div class="form-group mb-4">
+          <%= f.submit 'Salvar', class:"btn btn-danger" %>
       </div>
     </div>
   <% end %>
 
-  <%= link_to 'Voltar', cuisines_path, class:"btn btn-secondary" %>
+  <%= link_to 'Voltar', cuisine_path, class:"btn btn-outline-dark" %>
 </div>

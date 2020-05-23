@@ -1,11 +1,10 @@
-<div class="container mb-4 mt-4">
-  <h1 style="font-size: 2.5rem;">Resultados</h1>
-  <h2 class='mt-2' style="font-size: 1.2rem;">Foram encontrados <%= @places.count %> resultado(s) para a busca.</h2>
-</div>
+
 
 <div class="container">
-  <div class="row row-cols-2">
+  <div class="row row-cols-2 mt-5">
     <div class="col-9">
+      <h1 style="font-size: 2.5rem;">Resultados</h1>
+      <h2 class='my-3' style="font-size: 1.2rem;">Foram encontrados <%= @places.count %> resultado(s) para a busca.</h2>
       <% @places.each do |restaurant|  %>
         <div class="card mb-2 rounded" style="width: 80%;">
           <div class="row row-cols-2">
@@ -68,7 +67,7 @@
   </div>
 </div>
 <div class=container>
-    <div class="col-sm-5 mt-1">
-      <%= link_to 'Voltar', root_path, class:"btn btn-secondary" %>
-    </div><br><br>
+    <div class="col-sm-5 my-2">
+      <%= link_to 'Voltar', root_path, class:"btn btn-outline-dark" %>
+    </div>
 </div>

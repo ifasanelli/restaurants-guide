@@ -1,5 +1,5 @@
 <div class="container">
-  <h2>Anúncio</h2>
+  <h1 class="mt-5 mb-4">Anúncio lateral</h1>
 
   <table class="table">
     <thead>
@@ -13,7 +13,7 @@
       <tr>
         <td><%= @ad.name %></td>
         <td><%= @ad.restaurant.name %></td>
-        <td><%= image_tag(@ad.mini_ad, id: @ad.name) %></td>
+        <td><%= image_tag(@ad.mini_ad, id: @ad.name, style:"width:234px;height:60px") %></td>
       </tr>
     </tbody>
   </table>

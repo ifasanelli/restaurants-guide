@@ -30,4 +30,19 @@ feature 'Admin view cuisines' do
     expect(page).to have_content('Italiana')
     expect(page).to have_content('Voltar')
   end
+
+  scenario 'validates visitor' do
+    create(:cuisine)
+    create(:cuisine, name: 'Japonesa')
+    create(:cuisine, name: 'Mexicana')
+    user = create(:user, role: 0)
+    login_as(user, scope: :user)
+
+    visit cuisines_path
+
+    expect(page).not_to have_content('Italiana')
+    expect(page).not_to have_content('Japonesa')
+    expect(page).not_to have_content('Mexicana')
+    expect(current_path).to eq root_path
+  end
 end

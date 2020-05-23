@@ -42,8 +42,7 @@ class FullAdsController < ApplicationController
   end
 
   def check_admin
-    unless current_user && (current_user.admin? || current_user.superadmin?)
-      flash[:alert] = "Você não tem permissão para esta página!"
+    unless current_user.admin? || current_user.superadmin?
       redirect_to new_user_session_path
     end
   end

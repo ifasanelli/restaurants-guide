@@ -19,4 +19,14 @@ Rails.application.routes.draw do
   end
   resources :ads, only: %i[index show new create destroy]
   resources :full_ads, only: %i[index show new create destroy]
+
+
+  namespace :api do
+    namespace :v1 do
+      resources :cuisines, only: %i[index]
+      get 'search', to: 'home#search'
+    end
+  end
+  get 'sobre', to: 'home#sobre'
+  get 'contato', to: 'home#contato'
 end

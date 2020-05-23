@@ -1,6 +1,6 @@
 <div class="container">
 
-  <h2>Novo acessório</h2>
+  <h1 class="mt-5 mb-4">Novo Anúncio de homepage </h1>
 
   <%= form_for @full_ad do |f| %>
     <div class="form-group row">
@@ -17,7 +17,7 @@
     </div>
     <div class="form-group row">
       <div class="col-sm-5">
-          <%= f.submit 'Salvar', class: "btn btn-dark" %>
+          <%= f.submit 'Salvar', class: "btn btn-danger" %>
       </div>
     </div>
   <% end %>
@@ -30,7 +30,7 @@
           <% end %>
       <% end %>
   </div>
-  <div class="col-sm-5">
+  <div class="col-sm-5 px-0 mt-4">
     <%= link_to 'Voltar', full_ads_path, class:"btn btn-outline-dark" %>
   </div>
 
