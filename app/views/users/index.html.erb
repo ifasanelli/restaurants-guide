@@ -98,7 +98,7 @@
                 <% if user.role == 'visitor' %>
                   <%= form_tag user_set_admin_path(user.id), method: :put do %>
                     <%= hidden_field_tag :role, :admin %>
-                    <%= button_tag(type: "submit", class: "btn btn-default", id: "set-adm") do %>
+                    <%= button_tag(type: "submit", class: "btn btn-default", id: "set-adm-#{user.id}") do %>
                       <i class="material-icons" style="color: #800000">clear</i>
                     <% end %>
                   <% end %>
@@ -106,7 +106,7 @@
                 <% if user.role == 'admin' %>
                   <%= form_tag user_set_visitor_path(user.id), method: :put do %>
                     <%= hidden_field_tag :role, :admin %>
-                    <%= button_tag(type: "submit", class: "btn btn-default") do %>
+                    <%= button_tag(type: "submit", class: "btn btn-default", id: "set-visitor-#{user.id}") do %>
                       <i class="material-icons" style="color: #008000">done</i>
                     <% end %>
                   <% end %>
