@@ -3,7 +3,7 @@ require 'rails_helper'
 feature 'Admin changes restaurant status' do
   scenario 'changes to unavailable' do
     create(:restaurant)
-    user = create(:user, role: 2)
+    user = create(:user, role: 9)
     login_as(user, scope: :user)
 
     visit restaurants_path
@@ -17,7 +17,7 @@ feature 'Admin changes restaurant status' do
   end
   scenario 'changes to available' do
     create(:restaurant, status: 'unavailable')
-    user = create(:user, role: 2)
+    user = create(:user, role: 9)
     login_as(user, scope: :user)
 
     visit restaurants_path

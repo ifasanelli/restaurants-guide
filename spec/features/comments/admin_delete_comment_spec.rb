@@ -2,7 +2,7 @@ require 'rails_helper'
 
 feature 'Admin delete a comment' do
   scenario 'successfully' do
-    user = create(:user, role: 1)
+    user = create(:user, role: 5)
     create(:comment, status: 0, user: user, body: 'Muito bom restaurante!')
     login_as(user, scope: :user)
 

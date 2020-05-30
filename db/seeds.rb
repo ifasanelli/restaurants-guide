@@ -72,3 +72,24 @@ fad2.fullpage_ad.attach(io: File.open('app/assets/images/fht1.jpg'), filename: '
 fad3 = FullAd.create!(name: 'fbs1', restaurant_id: restaurant3.id)
 fad3.fullpage_ad.attach(io: File.open('app/assets/images/fbs1.jpg'), filename: 'fbs1.jpg', content_type: 'image/jpg')
 
+comment1 = Comment.create!(body: 'Restaurante muito bom!', restaurant_id: restaurant1.id, status: 5, user_id: user1.id)
+comment2 = Comment.create!(body: 'Já conheci melhores..', restaurant_id: restaurant1.id, status: 0, user_id: user2.id)
+comment3 = Comment.create!(body: 'Horrível!', restaurant_id: restaurant1.id, status: 0, user_id: user3.id)
+comment4 = Comment.create!(body: 'Melhor restaurante!', restaurant_id: restaurant2.id, status: 0, user_id: user1.id)
+comment5 = Comment.create!(body: 'Já conheci melhores..', restaurant_id: restaurant2.id, status: 5, user_id: user2.id)
+comment6 = Comment.create!(body: 'Ruim demais!', restaurant_id: restaurant2.id, status: 0, user_id: user3.id)
+comment7 = Comment.create!(body: 'Maravilhoso!', restaurant_id: restaurant3.id, status: 5, user_id: user1.id)
+comment8 = Comment.create!(body: 'Tá na média.', restaurant_id: restaurant3.id, status: 0, user_id: user2.id)
+comment9 = Comment.create!(body: 'Péssimo!', restaurant_id: restaurant3.id, status: 5, user_id: user3.id)
+
+rating1 = Rating.create!(star: 5, restaurant_id: restaurant1.id, user_id: user1.id)
+rating2 = Rating.create!(star: 3, restaurant_id: restaurant1.id, user_id: user2.id)
+rating3 = Rating.create!(star: 1, restaurant_id: restaurant1.id, user_id: user3.id)
+rating4 = Rating.create!(star: 4, restaurant_id: restaurant2.id, user_id: user1.id)
+rating5 = Rating.create!(star: 3, restaurant_id: restaurant2.id, user_id: user2.id)
+rating6 = Rating.create!(star: 2, restaurant_id: restaurant2.id, user_id: user3.id)
+rating7 = Rating.create!(star: 5, restaurant_id: restaurant3.id, user_id: user1.id)
+rating8 = Rating.create!(star: 3, restaurant_id: restaurant3.id, user_id: user2.id)
+rating9 = Rating.create!(star: 1, restaurant_id: restaurant3.id, user_id: user3.id)
+
+

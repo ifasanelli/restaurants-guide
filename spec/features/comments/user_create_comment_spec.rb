@@ -3,7 +3,7 @@ require 'rails_helper'
 feature 'User create a comment' do
   scenario 'successfully' do
     create(:restaurant)
-    user = create(:user, role: 2)
+    user = create(:user, role: 9)
     login_as(user, scope: :user)
 
     visit restaurants_path

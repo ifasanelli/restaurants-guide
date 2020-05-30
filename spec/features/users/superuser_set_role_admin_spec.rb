@@ -2,7 +2,7 @@ require 'rails_helper'
 
 feature 'Superuser set role as admin' do
   scenario 'successfully' do
-    user = create(:user, role: 2, name: 'Italo')
+    user = create(:user, role: 9, name: 'Italo')
     other_user = create(:user, role: 0, name: 'Mariana', email: 'm@m.com')
     login_as(user, scope: :user)
 

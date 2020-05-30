@@ -2,8 +2,8 @@ require 'rails_helper'
 
 feature 'Superuser set role as visitor' do
   scenario 'successfully' do
-    user = create(:user, role: 2, name: 'Italo')
-    other_user = create(:user, role: 1, name: 'Mariana', email: 'm@m.com')
+    user = create(:user, role: 9, name: 'Italo')
+    other_user = create(:user, role: 5, name: 'Mariana', email: 'm@m.com')
     login_as(user, scope: :user)
 
     visit users_path

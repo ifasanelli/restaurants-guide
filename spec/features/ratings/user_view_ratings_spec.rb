@@ -4,7 +4,7 @@ feature 'User view ratings' do
   scenario 'successfully' do
     cuisine = create(:cuisine, name: 'Japonesa')
     restaurant = create(:restaurant, cuisine: cuisine)
-    user = create(:user, role: 2)
+    user = create(:user, role: 9)
     create(:rating, star: 4, restaurant: restaurant, user: user)
     login_as(user, scope: :user)
 

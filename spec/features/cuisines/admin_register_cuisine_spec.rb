@@ -2,7 +2,7 @@ require 'rails_helper'
 
 feature 'Admin register a cuisine' do
   scenario 'successfully' do
-    user = create(:user, role: 2)
+    user = create(:user, role: 9)
     login_as(user, scope: :user)
 
     visit cuisines_path
@@ -16,7 +16,7 @@ feature 'Admin register a cuisine' do
   end
 
   scenario 'validates empty field' do
-    user = create(:user, role: 2)
+    user = create(:user, role: 9)
     login_as(user, scope: :user)
 
     visit cuisines_path
@@ -30,7 +30,7 @@ feature 'Admin register a cuisine' do
   end
   scenario 'validates duplicateds names' do
     create(:cuisine)
-    user = create(:user, role: 2)
+    user = create(:user, role: 9)
     login_as(user, scope: :user)
 
     visit cuisines_path

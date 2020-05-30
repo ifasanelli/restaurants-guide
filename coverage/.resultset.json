@@ -13,11 +13,11 @@
           1,
           null,
           1,
-          222,
+          219,
           null,
           null,
           1,
-          297,
+          294,
           null,
           null
         ]
@@ -51,18 +51,18 @@
           null,
           null,
           1,
-          27,
-          27,
-          21,
+          50,
+          50,
+          20,
           2,
           null,
           null,
-          27,
+          50,
           4,
           2,
           2,
           null,
-          25,
+          48,
           null,
           null,
           null
@@ -139,15 +139,15 @@
           1,
           null,
           1,
-          121,
-          93,
+          120,
+          92,
           null,
           null,
           null,
           null,
           null,
           null,
-          91,
+          90,
           null,
           null,
           null,
@@ -186,7 +186,7 @@
           1,
           1,
           1,
-          0,
+          1,
           null,
           null,
           null,
@@ -238,7 +238,7 @@
           null,
           null,
           1,
-          20,
+          19,
           null,
           null,
           1,
@@ -280,7 +280,7 @@
           1,
           null,
           1,
-          30,
+          29,
           null,
           null,
           1,
@@ -499,51 +499,45 @@
       },
       "/home/italo/projetos/github/restaurants-guide/app/controllers/api/v1/cuisines_controller.rb": {
         "lines": [
-          0,
+          1,
           null,
-          0,
-          0,
-          0,
-          0,
+          1,
+          1,
+          1,
           null,
-          0
-        ],
-        "branches": {
-        }
+          null,
+          null
+        ]
+      },
+      "/home/italo/projetos/github/restaurants-guide/app/controllers/api/v1/api_controller.rb": {
+        "lines": [
+          1,
+          null
+        ]
       },
       "/home/italo/projetos/github/restaurants-guide/app/controllers/api/v1/home_controller.rb": {
         "lines": [
-          0,
+          1,
           null,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
+          1,
+          1,
+          1,
           null,
-          0,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          1,
+          null,
+          null,
+          null,
           null,
           null,
           null,
           null
-        ],
-        "branches": {
-        }
-      },
-      "/home/italo/projetos/github/restaurants-guide/app/controllers/api/v1/api_controller.rb": {
-        "lines": [
-          0,
-          0
-        ],
-        "branches": {
-        }
+        ]
       },
       "/home/italo/projetos/github/restaurants-guide/app/controllers/ratings_controller.rb": {
         "lines": [
@@ -573,6 +567,6 @@
         }
       }
     },
-    "timestamp": 1590654632
+    "timestamp": 1590810740
   }
 }

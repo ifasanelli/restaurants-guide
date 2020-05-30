@@ -4,7 +4,7 @@ feature 'Admin view data' do
   scenario 'successfully' do
     cuisine = create(:cuisine, name: 'Japonesa')
     restaurant = create(:restaurant, cuisine: cuisine)
-    user = create(:user, role: 2, name: 'Italo')
+    user = create(:user, role: 9, name: 'Italo')
     other_user = create(:user, role: 0, name: 'Mariana', email: 'm@m.com')
     create(:rating, star: 4, restaurant: restaurant, user: user)
     create(:comment, status: 0, restaurant: restaurant, user: user, body: 'Demais!')

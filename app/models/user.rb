@@ -3,7 +3,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-  enum role: { visitor: 0, admin: 1, superadmin: 2 }
+  enum role: { visitor: 0, admin: 5, superadmin: 9 }
   has_many :comments
   has_many :ratings
 

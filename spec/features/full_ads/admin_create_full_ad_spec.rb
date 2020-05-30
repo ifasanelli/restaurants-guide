@@ -4,7 +4,7 @@ feature 'Admin create full ad' do
   scenario 'successfully' do
     cuisine = create(:cuisine, name: 'Russa')
     create(:restaurant, name: 'Russo', cuisine: cuisine)
-    user = create(:user, role: 2)
+    user = create(:user, role: 9)
     login_as(user, scope: :user)
 
     visit full_ads_path
@@ -21,7 +21,7 @@ feature 'Admin create full ad' do
   scenario 'validate empty fields' do
     cuisine = create(:cuisine, name: 'Russa')
     create(:restaurant, name: 'Russo', cuisine: cuisine)
-    user = create(:user, role: 2)
+    user = create(:user, role: 9)
     login_as(user, scope: :user)
 
     visit full_ads_path

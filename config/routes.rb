@@ -15,7 +15,7 @@ Rails.application.routes.draw do
     member do
       delete :delete_image_attachment
     end
-    resources :ratings
+    resources :ratings, only: %i[create update]
   end
   resources :ads, only: %i[index show new create destroy]
   resources :full_ads, only: %i[index show new create destroy]
