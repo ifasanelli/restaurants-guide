@@ -46,7 +46,7 @@ class CuisinesController < ApplicationController
 
   def check_admin
     unless current_user.admin? || current_user.superadmin?
-      flash[:alert] = "Você não tem permissão para esta página!"
+      flash[:alert] = 'Você não tem permissão para esta página!'
       redirect_to new_user_session_path
     end
   end

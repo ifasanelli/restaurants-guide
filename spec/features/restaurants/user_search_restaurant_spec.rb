@@ -3,12 +3,12 @@ require 'rails_helper'
 feature 'User search for a restaurant' do
   scenario 'successfully' do
     cuisine = create(:cuisine, name: 'Churrascaria')
-    restaurant_one = create(:restaurant, name: 'Van Gogh', cuisine: cuisine )
-    restaurant_two = create(:restaurant, name: 'Tertulia', cuisine: cuisine)
-    restaurant_three = create(:restaurant, name: 'Fogo de chão', cuisine: cuisine)
-    restaurant_four = create(:restaurant, name: 'Boi bão', cuisine: cuisine)
-    restaurant_five = create(:restaurant, name: 'Porcão', cuisine: cuisine)
-    restaurant_six = create(:restaurant, name: 'Mania de churrasco', cuisine: cuisine)
+    create(:restaurant, name: 'Van Gogh', cuisine: cuisine)
+    create(:restaurant, name: 'Tertulia', cuisine: cuisine)
+    create(:restaurant, name: 'Fogo de chão', cuisine: cuisine)
+    create(:restaurant, name: 'Boi bão', cuisine: cuisine)
+    create(:restaurant, name: 'Porcão', cuisine: cuisine)
+    create(:restaurant, name: 'Mania de churrasco', cuisine: cuisine)
 
     visit root_path
     fill_in 'Buscar', with: 'churrascaria'

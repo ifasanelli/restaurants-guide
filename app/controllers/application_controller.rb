@@ -7,21 +7,22 @@ class ApplicationController < ActionController::Base
 
   def store_action
     return unless request.get?
-    if (request.path != "/users/sign_in" &&
-        request.path != "/users/sign_up" &&
-        request.path != "/users/password/new" &&
-        request.path != "/users/password/edit" &&
-        request.path != "/users/confirmation" &&
-        request.path != "/users/sign_out" &&
-        !request.xhr?) # don't store ajax calls
+
+    if request.path != '/users/sign_in' &&
+       request.path != '/users/sign_up' &&
+       request.path != '/users/password/new' &&
+       request.path != '/users/password/edit' &&
+       request.path != '/users/confirmation' &&
+       request.path != '/users/sign_out' &&
+       !request.xhr? # don't store ajax calls
       store_location_for(:user, request.fullpath)
     end
   end
 
   protected
-    def configure_permitted_parameters
-        devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :email, :password, :role])
-        devise_parameter_sanitizer.permit(:account_update, keys: [:name, :email, :password, :current_password, :role])
-    end
 
+  def configure_permitted_parameters
+    devise_parameter_sanitizer.permit(:sign_up, keys: %i[name email password role])
+    devise_parameter_sanitizer.permit(:account_update, keys: %i[name email password current_password role])
+  end
 end

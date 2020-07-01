@@ -1,8 +1,8 @@
 class RestaurantsController < ApplicationController
   before_action :find_restaurant, only: %i[show edit update]
-  before_action :authenticate_user!, only: %i[index new create edit update delete]
+  before_action :authenticate_user!, only: %i[index new create edit update]
   before_action :restaurant_status, only: %i[edit update]
-  before_action :checkAdmin, only: %i[index new create edit update delete]
+  before_action :check_admin, only: %i[index new create edit update]
 
   def index
     @restaurants = Restaurant.all
@@ -71,7 +71,7 @@ class RestaurantsController < ApplicationController
     @status = @restaurant.available? ? false : true
   end
 
-  def checkAdmin
+  def check_admin
     redirect_to new_user_session_path unless current_user && (current_user.admin? || current_user.superadmin?)
   end
 end

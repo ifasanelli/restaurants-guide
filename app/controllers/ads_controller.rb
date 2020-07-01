@@ -42,8 +42,6 @@ class AdsController < ApplicationController
   end
 
   def check_admin
-    unless current_user.admin? || current_user.superadmin?
-      redirect_to root_path
-    end
+    redirect_to root_path unless current_user.admin? || current_user.superadmin?
   end
 end

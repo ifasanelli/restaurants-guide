@@ -4,8 +4,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   enum role: { visitor: 0, admin: 5, superadmin: 9 }
-  has_many :comments
-  has_many :ratings
+  has_many :comments, dependent: :destroy
+  has_many :ratings, dependent: :destroy
 
   def admin?
     role == 'admin'

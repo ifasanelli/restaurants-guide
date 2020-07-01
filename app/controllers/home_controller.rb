@@ -13,7 +13,7 @@ class HomeController < ApplicationController
     @q = params[:q]
     @custom_renderer = Class.new(WillPaginate::ActionView::LinkRenderer) do
       def container_attributes
-        {class: 'custom_pagination mt-5'}
+        { class: 'custom_pagination mt-5' }
       end
     end
   end
