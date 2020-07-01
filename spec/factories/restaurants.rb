@@ -19,7 +19,14 @@ FactoryBot.define do
     outside { true }
     club { true }
     vegetarian { true }
-    map { 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d20622.571049395177!2d-46.303125769285494!3d-23.974935683825358!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x344b00a453db9644!2zRW1ww7NyaW8gZGEgUHJhw6dh!5e0!3m2!1spt-BR!2sbr!4v1584842006399!5m2!1spt-BR!2sbr' }
+    map {
+      'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d20622.'\
+      '571049395177!2d-46.303125769285494!3d-23.974935683825358!2m3'\
+      '!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x344b0'\
+      '0a453db9644!2zRW1ww7NyaW8gZGEgUHJhw6dh!5e0!3m2!1spt-BR!2sbr!'\
+      '4v1584842006399!5m2!1spt-BR!2sbr'
+    }
+
     cuisine
   end
 end

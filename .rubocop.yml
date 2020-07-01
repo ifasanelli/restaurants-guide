@@ -22,6 +22,7 @@ AllCops:
     - 'spec/spec_helper.rb'
     - 'Gemfile'
     - 'Rakefile'
+    - 'spec/**/*'
 
 Style/Documentation:
  Enabled: false
@@ -33,7 +34,13 @@ Metrics/BlockLength:
  ExcludedMethods: ['describe', 'context', 'feature', 'scenario', 'let']
 
 Layout/LineLength:
-  Max: 80
+  Max: 120
 
 Style/AsciiComments:
   Enabled: false
+
+Metrics/MethodLength:
+  Max: 50
+
+Metrics/BlockLength:
+  Max: 50

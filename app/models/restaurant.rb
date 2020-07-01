@@ -2,8 +2,8 @@ class Restaurant < ApplicationRecord
   belongs_to :cuisine
   has_many_attached :pictures
   has_many_attached :menus
-  has_many :comments
-  has_many :ratings
+  has_many :comments, dependent: :destroy
+  has_many :ratings, dependent: :destroy
   enum status: { available: 0, unavailable: 1 }
   validates :name, presence: { message: 'Nome não pode ficar em branco' }
   validates :address, presence: { message: 'Endereço não pode ficar em branco' }
@@ -20,16 +20,14 @@ class Restaurant < ApplicationRecord
   def avg_note
     array = []
     ratings.each do |rating|
-      unless rating.star.nil?
-        array << rating.star
-      end
+      array << rating.star unless rating.star.nil?
     end
-    unless array.empty?
-      sum = array.reduce(0) { |sum, num| sum + num }
-      result = sum.to_f / ratings.count.to_f
-      "#{result.to_f.round(1)}"
-    else
+    if array.empty?
       '-'
+    else
+      total = array.reduce(0) { |sum, num| sum + num }
+      result = total / ratings.count.to_f
+      result.to_f.round(1).to_s
     end
   end
 end

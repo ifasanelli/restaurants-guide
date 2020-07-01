@@ -27,5 +27,4 @@ feature 'Admin view ads and its details' do
 
     expect(current_path).to eq root_path
   end
-
 end

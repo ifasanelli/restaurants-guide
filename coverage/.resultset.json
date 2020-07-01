@@ -54,15 +54,13 @@
           50,
           50,
           20,
-          2,
-          null,
           null,
           50,
+          48,
+          null,
           4,
           2,
           2,
-          null,
-          48,
           null,
           null,
           null
@@ -123,8 +121,6 @@
           null,
           1,
           18,
-          1,
-          null,
           null,
           null
         ]
@@ -140,6 +136,7 @@
           null,
           1,
           120,
+          null,
           92,
           null,
           null,
@@ -152,10 +149,10 @@
           null,
           null,
           1,
+          null,
           1,
           3,
           3,
-          null,
           null,
           null
         ]
@@ -448,8 +445,6 @@
           null,
           1,
           14,
-          1,
-          null,
           null,
           null
         ]
@@ -459,12 +454,9 @@
           1,
           1,
           1,
+          1,
           null,
           1,
-          5,
-          5,
-          5,
-          5,
           5,
           5,
           5,
@@ -494,16 +486,24 @@
           null,
           null,
           null,
+          1,
+          5,
+          5,
+          5,
+          5,
+          null,
           null
         ]
       },
       "/home/italo/projetos/github/restaurants-guide/app/controllers/api/v1/cuisines_controller.rb": {
         "lines": [
           1,
+          1,
+          1,
+          1,
+          1,
+          1,
           null,
-          1,
-          1,
-          1,
           null,
           null,
           null
@@ -512,16 +512,20 @@
       "/home/italo/projetos/github/restaurants-guide/app/controllers/api/v1/api_controller.rb": {
         "lines": [
           1,
+          1,
+          1,
+          null,
           null
         ]
       },
       "/home/italo/projetos/github/restaurants-guide/app/controllers/api/v1/home_controller.rb": {
         "lines": [
           1,
-          null,
           1,
           1,
           1,
+          1,
+          1,
           null,
           null,
           null,
@@ -530,9 +534,6 @@
           null,
           null,
           1,
-          null,
-          null,
-          null,
           null,
           null,
           null,
@@ -557,16 +558,12 @@
           0,
           0,
           0,
-          0,
-          0,
-          0,
-          0,
           0
         ],
         "branches": {
         }
       }
     },
-    "timestamp": 1590810740
+    "timestamp": 1590824595
   }
 }

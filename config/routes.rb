@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root to: 'home#index'
   devise_for :users
   resources :users, only: [:index] do
@@ -19,8 +18,6 @@ Rails.application.routes.draw do
   end
   resources :ads, only: %i[index show new create destroy]
   resources :full_ads, only: %i[index show new create destroy]
-
-
   namespace :api do
     namespace :v1 do
       resources :cuisines, only: %i[index]
