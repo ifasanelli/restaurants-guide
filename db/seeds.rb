@@ -86,10 +86,10 @@ rating1 = Rating.create!(star: 5, restaurant_id: restaurant1.id, user_id: user1.
 rating2 = Rating.create!(star: 3, restaurant_id: restaurant1.id, user_id: user2.id)
 rating3 = Rating.create!(star: 1, restaurant_id: restaurant1.id, user_id: user3.id)
 rating4 = Rating.create!(star: 4, restaurant_id: restaurant2.id, user_id: user1.id)
-rating5 = Rating.create!(star: 3, restaurant_id: restaurant2.id, user_id: user2.id)
+rating5 = Rating.create!(star: 2, restaurant_id: restaurant2.id, user_id: user2.id)
 rating6 = Rating.create!(star: 2, restaurant_id: restaurant2.id, user_id: user3.id)
 rating7 = Rating.create!(star: 5, restaurant_id: restaurant3.id, user_id: user1.id)
 rating8 = Rating.create!(star: 3, restaurant_id: restaurant3.id, user_id: user2.id)
-rating9 = Rating.create!(star: 1, restaurant_id: restaurant3.id, user_id: user3.id)
+rating9 = Rating.create!(star: 4, restaurant_id: restaurant3.id, user_id: user3.id)
 
 

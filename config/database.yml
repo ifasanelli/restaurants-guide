@@ -19,7 +19,7 @@ development:
   encoding: unicode
   database: restaurants-guide_development
   pool: 5
-  username: italo
+  username: postgres
   password:
   timeout: 5000
  

@@ -18,8 +18,8 @@ ActiveRecord::Schema.define(version: 2020_04_05_031157) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
-    t.integer "record_id", null: false
-    t.integer "blob_id", null: false
+    t.bigint "record_id", null: false
+    t.bigint "blob_id", null: false
     t.datetime "created_at", null: false
     t.index ["blob_id"], name: "index_active_storage_attachments_on_blob_id"
     t.index ["record_type", "record_id", "name", "blob_id"], name: "index_active_storage_attachments_uniqueness", unique: true
@@ -38,30 +38,19 @@ ActiveRecord::Schema.define(version: 2020_04_05_031157) do
 
   create_table "ads", force: :cascade do |t|
     t.string "name"
-    t.integer "restaurant_id"
+    t.bigint "restaurant_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["restaurant_id"], name: "index_ads_on_restaurant_id"
   end
 
-  create_table "average_caches", force: :cascade do |t|
-    t.integer "rater_id"
-    t.string "rateable_type"
-    t.integer "rateable_id"
-    t.float "avg", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["rateable_type", "rateable_id"], name: "index_average_caches_on_rateable_type_and_rateable_id"
-    t.index ["rater_id"], name: "index_average_caches_on_rater_id"
-  end
-
   create_table "comments", force: :cascade do |t|
     t.text "body"
-    t.integer "restaurant_id"
+    t.bigint "restaurant_id"
     t.integer "status", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "user_id"
+    t.bigint "user_id"
     t.index ["restaurant_id"], name: "index_comments_on_restaurant_id"
     t.index ["user_id"], name: "index_comments_on_user_id"
   end
@@ -74,52 +63,18 @@ ActiveRecord::Schema.define(version: 2020_04_05_031157) do
 
   create_table "full_ads", force: :cascade do |t|
     t.string "name"
-    t.integer "restaurant_id"
+    t.bigint "restaurant_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["restaurant_id"], name: "index_full_ads_on_restaurant_id"
   end
 
-  create_table "overall_averages", force: :cascade do |t|
-    t.string "rateable_type"
-    t.integer "rateable_id"
-    t.float "overall_avg", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["rateable_type", "rateable_id"], name: "index_overall_averages_on_rateable_type_and_rateable_id"
-  end
-
-  create_table "rates", force: :cascade do |t|
-    t.integer "rater_id"
-    t.string "rateable_type"
-    t.integer "rateable_id"
-    t.float "stars", null: false
-    t.string "dimension"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["rateable_id", "rateable_type"], name: "index_rates_on_rateable_id_and_rateable_type"
-    t.index ["rateable_type", "rateable_id"], name: "index_rates_on_rateable_type_and_rateable_id"
-    t.index ["rater_id"], name: "index_rates_on_rater_id"
-  end
-
-  create_table "rating_caches", force: :cascade do |t|
-    t.string "cacheable_type"
-    t.integer "cacheable_id"
-    t.float "avg", null: false
-    t.integer "qty", null: false
-    t.string "dimension"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["cacheable_id", "cacheable_type"], name: "index_rating_caches_on_cacheable_id_and_cacheable_type"
-    t.index ["cacheable_type", "cacheable_id"], name: "index_rating_caches_on_cacheable_type_and_cacheable_id"
-  end
-
   create_table "ratings", force: :cascade do |t|
     t.integer "star"
-    t.integer "restaurant_id"
+    t.bigint "restaurant_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "user_id"
+    t.bigint "user_id"
     t.index ["restaurant_id"], name: "index_ratings_on_restaurant_id"
     t.index ["user_id"], name: "index_ratings_on_user_id"
   end
@@ -144,7 +99,7 @@ ActiveRecord::Schema.define(version: 2020_04_05_031157) do
     t.boolean "outside"
     t.boolean "club"
     t.boolean "vegetarian"
-    t.integer "cuisine_id"
+    t.bigint "cuisine_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "map"
@@ -165,4 +120,12 @@ ActiveRecord::Schema.define(version: 2020_04_05_031157) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "ads", "restaurants"
+  add_foreign_key "comments", "restaurants"
+  add_foreign_key "comments", "users"
+  add_foreign_key "full_ads", "restaurants"
+  add_foreign_key "ratings", "restaurants"
+  add_foreign_key "ratings", "users"
+  add_foreign_key "restaurants", "cuisines"
 end
